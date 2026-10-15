@@ -5,10 +5,12 @@ export default function Home() {
     <div>
       <Header />
       {/* Top heading */}
-      <h1>Bryan Vazquez</h1>
-      <h2 className="opacity-50">React Front-end Developer</h2>
+      <h1 className="!text-5xl">Bryan Vazquez</h1>
+      <h2 className="!text-3xl opacity-50 font-normal">
+        React Front-end Developer
+      </h2>
 
-      <p>
+      <p className="text-center">
         Building apps to solve{" "}
         <span className="font-semibold">real problems</span>, type-safety,
         accessibility friendly, and creating seamless interfaces from complex
