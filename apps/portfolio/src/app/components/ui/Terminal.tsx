@@ -7,12 +7,12 @@ export default function Terminal() {
 
   return (
     <div className="cursor-text m-1">
-      <p className="opacity-75">Termainl: Type "help" to view all commands.</p>
+      <p className="opacity-75">Terminal: Type "help" to view all commands.</p>
       <div
         onClick={() => inputRef.current?.focus()}
         className="cursor-text bg-stone-950 p-1 font-mono"
       >
-        <span>bryan:~$ </span>
+        <span>bryan@portfolio:~$ </span>
         <span
           ref={inputRef}
           contentEditable
