@@ -1,4 +1,8 @@
-export default function OutputScreen() {
+type OutputScreenProps = {
+  directories: any;
+};
+
+export default function OutputScreen({ directories }: OutputScreenProps) {
   return (
     <div className="bg-stone-300 rounded-md p-3">
       <div className="grid grid-rows-1 grid-cols-2 gap-5">
@@ -9,47 +13,20 @@ export default function OutputScreen() {
         >
           {/* Insert dynamicly generated navigation based on current directory selection */}
           <ul className="flex flex-col gap-2">
-            <li>
-              <button
-                type="button"
-                className="w-full bg-stone-800 rounded-full text-stone-300 text-center py-1"
-              >
-                {/* NOTE: Only show this when cwd !== "~" */}
-                ../
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="w-full bg-stone-800 rounded-full text-stone-300 text-center py-1"
-              >
-                about-me.md
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="w-full bg-stone-800 rounded-full text-stone-300 text-center py-1"
-              >
-                projects/
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="w-full bg-stone-800 rounded-full text-stone-300 text-center py-1"
-              >
-                newsletter/
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="w-full bg-stone-800 rounded-full text-stone-300 text-center py-1"
-              >
-                contact.bash
-              </button>
-            </li>
+            {directories?.map((data) => {
+              return (
+                data._type === "directory" && (
+                  <li key={data._id}>
+                    <button
+                      type="button"
+                      className="w-full bg-stone-800 rounded-full text-stone-300 text-center py-1"
+                    >
+                      {data.name}
+                    </button>
+                  </li>
+                )
+              );
+            })}
           </ul>
         </nav>
 
@@ -60,7 +37,25 @@ export default function OutputScreen() {
                 Every nav click or typed via cd, move focus to that heading with tabIndex={-1}
         */}
         <section className="flex flex-col gap-3">
-          {/* Populate content here after interaction (Props) */}
+          <ul className="flex gap-5 flex-wrap">
+            {directories?.map((data) => {
+              return (
+                data._type !== "directory" && (
+                  <li
+                    key={data._id}
+                    className="bg-stone-400 rounded-md px-2 px-1"
+                  >
+                    <button
+                      type="button"
+                      className="text-stone-800 text-center py-1 m-0"
+                    >
+                      {data.name}
+                    </button>
+                  </li>
+                )
+              );
+            })}
+          </ul>
         </section>
       </div>
     </div>
