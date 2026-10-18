@@ -1,26 +1,22 @@
-import { directoryQuery } from "@/sanity/queries";
-import { client } from "../sanity/client";
+"use client";
 
+import { useState } from "react";
 import Header from "./components/ui/Header";
-import OutputScreen from "./components/ui/OutputScreen";
+import OutputScreen from "./components/ui/outputPanel/OutputScreen";
 import Terminal from "./components/ui/Terminal";
+import { Output } from "@/data/type";
 
-export default async function Home() {
-  const tree = await client.fetch(
-    directoryQuery,
-    {},
-    { next: { revalidate: 3600 } },
-  );
-
-  console.log(tree);
+export default function Home() {
+  const [cwd, setCWD] = useState<string>("~/");
+  const [output, setOutput] = useState<Output>(null);
 
   return (
     <div>
       <Header />
 
       <main>
-        <Terminal />
-        <OutputScreen directories={tree} />
+        <Terminal cwd={cwd} setCWD={setCWD} setOutput={setOutput} />
+        <OutputScreen output={output} />
       </main>
 
       <footer>this is the footer</footer>

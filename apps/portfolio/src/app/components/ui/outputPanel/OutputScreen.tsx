@@ -1,8 +1,14 @@
+// This is the general container for the output screen.
+
+import { Output } from "@/data/type";
+import LeftPanel from "./LeftPanel";
+import RightPanel from "./RightPanel";
+
 type OutputScreenProps = {
-  directories: any;
+  output: Output;
 };
 
-export default function OutputScreen({ directories }: OutputScreenProps) {
+export default function OutputScreen({ output }: OutputScreenProps) {
   return (
     <div className="bg-stone-300 rounded-md p-3">
       <div className="grid grid-rows-1 grid-cols-2 gap-5">
@@ -13,7 +19,8 @@ export default function OutputScreen({ directories }: OutputScreenProps) {
         >
           {/* Insert dynamicly generated navigation based on current directory selection */}
           <ul className="flex flex-col gap-2">
-            {directories?.map((data) => {
+            <LeftPanel />
+            {/* {directories?.map((data) => {
               return (
                 data._type === "directory" && (
                   <li key={data._id}>
@@ -26,7 +33,7 @@ export default function OutputScreen({ directories }: OutputScreenProps) {
                   </li>
                 )
               );
-            })}
+            })} */}
           </ul>
         </nav>
 
@@ -37,8 +44,9 @@ export default function OutputScreen({ directories }: OutputScreenProps) {
                 Every nav click or typed via cd, move focus to that heading with tabIndex={-1}
         */}
         <section className="flex flex-col gap-3">
-          <ul className="flex gap-5 flex-wrap">
-            {directories?.map((data) => {
+          <RightPanel output={output} />
+
+          {/* {directories?.map((data) => {
               return (
                 data._type !== "directory" && (
                   <li
@@ -54,8 +62,7 @@ export default function OutputScreen({ directories }: OutputScreenProps) {
                   </li>
                 )
               );
-            })}
-          </ul>
+            })} */}
         </section>
       </div>
     </div>

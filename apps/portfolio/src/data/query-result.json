@@ -1,0 +1,272 @@
+[
+  {
+    "cwd": "~/newsletter/",
+    "files": [
+      {
+        "_id": "fbf91c99-b5da-4121-a793-3ee8e317ab32",
+        "_type": "post",
+        "body": [
+          {
+            "_key": "941b4361e981",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "df22c87290f1",
+                "_type": "span",
+                "marks": [],
+                "text": "Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text "
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "coverImage": null,
+        "name": "virtual-directory.md",
+        "publishedAt": "2026-10-15T23:52:00.000Z",
+        "shortDescription": "Created a virtual directory using a CMS.",
+        "title": "Virtual Directory"
+      }
+    ],
+    "folders": [],
+    "name": "newsletter",
+    "parent": "~/"
+  },
+  {
+    "cwd": "~/projects/personal/",
+    "files": [],
+    "folders": [],
+    "name": "personal",
+    "parent": "~/projects/"
+  },
+  {
+    "cwd": "~/",
+    "files": [
+      {
+        "_id": "951d6de2-f540-454d-b1a3-7a17a1eeace9",
+        "_type": "aboutMe",
+        "body": null,
+        "gallery": null,
+        "name": "about-me.md",
+        "what": null,
+        "when": null,
+        "where": null,
+        "who": "test",
+        "why": null
+      }
+    ],
+    "folders": [
+      {
+        "cwd": "~/newsletter/",
+        "name": "newsletter"
+      },
+      {
+        "cwd": "~/projects/",
+        "name": "projects"
+      }
+    ],
+    "name": "~",
+    "parent": null
+  },
+  {
+    "cwd": "~/projects/",
+    "files": [
+      {
+        "_id": "df3409ae-75f0-49a4-89fb-cf06eb758517",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "a5f8735a01f2",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "6bdf67a27697",
+                "_type": "span",
+                "marks": [],
+                "text": "Built a multi-tenant SaaS platform for multi-location businesses with Google OAuth, onboarding, and per-business role-based access control.\n\nCollaboration made easy by sharing a portal and records to be populated into a website. A developer worries about the code while the business owner worries about what content gets displayed. Using API..."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": null,
+        "isOngoing": true,
+        "name": "multi-tenant-business-platform-app.md",
+        "startDate": "2026-06-01",
+        "tech": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "Auth.js",
+          "Redis",
+          "AWS S3"
+        ],
+        "title": "Multi-tenant Business Platform App"
+      },
+      {
+        "_id": "1192fd5b-2633-4475-acf0-8ca76cb0ca11",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "bed4a0957599",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "f4b4c0cb33bb",
+                "_type": "span",
+                "marks": [],
+                "text": "CHANGE ME\n\n– Developed core features for a syllabus builder web application used by instructors to create and manage course syllabi\n– Constructed dynamic tab-based workflows and content management features using HTMX partial updates and Django\ntemplates based on MVP requirements\n– Designed reusable responsive UI components with TailwindCSS and DaisyUI across multiple modules\n– Led frontend development, shaped UI/UX decisions, and provided design feedback and technical guidance to teammates\n– Collaborated within a 7-person Agile team using GitHub, Jira, code reviews, and sprint-based development practices\nVideogame Dashboard (Vite, NodeJS, ExpressJS, REST APIs, Vercel, Render, Vitest) Nov 2025 – Dec 20"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": "2026-06-01",
+        "isOngoing": false,
+        "name": "akkadian-capstone-project.md",
+        "startDate": "2026-01-01",
+        "tech": [
+          "Django",
+          "HTMX",
+          "TailwindCSS",
+          "DaisyUI",
+          "PostgreSQL"
+        ],
+        "title": "Akkadian (Capstone Project)"
+      },
+      {
+        "_id": "d1d565b2-fff6-4192-ba68-0906ef69cc70",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "f4eb85cbd8d9",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "3d9ef28aef2b",
+                "_type": "span",
+                "marks": [],
+                "text": "CHANGE ME"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "cacd77bad7d6",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "948acba703e7",
+                "_type": "span",
+                "marks": [],
+                "text": ""
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "0e0455f74061",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "04cc79afb5ed",
+                "_type": "span",
+                "marks": [],
+                "text": "– Developed a full-stack analytics dashboard integrating Steam and IGDB APIs to visualize the videogame industry market\n– Built interactive data visualizations, filtering systems, and responsive React components using ChartJS\n– Built ExpressJS backend endpoints to fetch and deliver videogame data to the React frontend\n– Deployed frontend and backend services using Vercel and Render with automated cloud-based hosting workflows\n– Implemented automated testing with Vitest to validate API response processing and application functionality\n"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": "2025-12-01",
+        "isOngoing": false,
+        "name": "videogame-dashboard.md",
+        "startDate": "2025-11-01",
+        "tech": [
+          "Vite",
+          "NodeJS",
+          "ExpressJS",
+          "REST APIs",
+          "Vercel",
+          "Render",
+          "Vitest"
+        ],
+        "title": "Videogame Dashboard"
+      },
+      {
+        "_id": "fa101bbc-4a01-49c5-a3de-880457c815b5",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "b11f5bbe67f4",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "9b1b8937c1f5",
+                "_type": "span",
+                "marks": [],
+                "text": "CHANGE ME"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "ab762011d8dd",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "4dc6b28b9d1f",
+                "_type": "span",
+                "marks": [],
+                "text": ""
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "cb9b848e4bf1",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b121c40bb397",
+                "_type": "span",
+                "marks": [],
+                "text": "-  Built and launched the restaurant's website with React and Vite, deployed on AWS S3 and CloudFront\n- Gathered requirements from the owners and turned them into features, iterating on feedback through\nlaunch"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": "2025-09-01",
+        "isOngoing": false,
+        "name": "freelance-web-developer-tacos-el-guero.md",
+        "startDate": "2025-06-01",
+        "tech": [
+          "Vite",
+          "JavaScript",
+          "CSS",
+          "AWS S3",
+          "CloudFront"
+        ],
+        "title": "Freelance Web Developer (Tacos El Guero)"
+      }
+    ],
+    "folders": [
+      {
+        "cwd": "~/projects/personal/",
+        "name": "personal"
+      }
+    ],
+    "name": "projects",
+    "parent": "~/"
+  }
+]
