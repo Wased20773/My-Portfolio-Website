@@ -21,13 +21,11 @@ export default function RightPanel({ output }: { output: Output }) {
 function Listing({ dir }: { dir: Directory }) {
   return (
     <ul className="flex gap-5 flex-wrap font-mono">
-      {dir.folders.map((f) => (
-        <li key={f.cwd} className="text-gray-800">
-          {f.name}/
-        </li>
-      ))}
       {dir.files.map((f) => (
-        <li key={f._id} className="text-gray-800">
+        <li
+          key={f._id}
+          className="text-gray-800 rounded-md bg-gray-400 px-2 py-1"
+        >
           {f.name}
         </li>
       ))}
