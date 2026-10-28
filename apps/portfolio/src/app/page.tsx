@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <Header />
 
-      <main>
+      <main className="max-w-[1200px] mx-auto">
         <Terminal cwd={cwd} setCWD={setCWD} setOutput={setOutput} />
         <OutputScreen output={output} />
       </main>

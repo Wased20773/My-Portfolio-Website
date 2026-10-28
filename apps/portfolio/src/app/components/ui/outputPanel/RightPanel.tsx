@@ -20,15 +20,47 @@ export default function RightPanel({ output }: { output: Output }) {
 
 function Listing({ dir }: { dir: Directory }) {
   return (
-    <ul className="flex gap-5 flex-wrap font-mono">
-      {dir.files.map((f) => (
-        <li
-          key={f._id}
-          className="text-gray-800 rounded-md bg-gray-400 px-2 py-1"
-        >
-          {f.name}
-        </li>
-      ))}
+    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono">
+      {dir.files.map((f, i) =>
+        f._type === "aboutMe" ? (
+          <li
+            key={f._id}
+            className="text-gray-800 rounded-md bg-stone-100 px-2 py-1"
+          >
+            <p className="font-semibold">{f.name}</p>
+          </li>
+        ) : f._type === "project" ? (
+          <li
+            key={f._id}
+            className="flex flex-col justify-between text-gray-800 rounded-md bg-stone-100 px-2 py-1"
+          >
+            <p className="font-semibold">{f.name}</p>
+            {/* {f.tech && (
+              <ul className="flex flex-wrap gap-2" aria-label="Tech stack"></ul>
+            )} */}
+            <p className="text-stone-600">{projectDates(f)}</p>
+          </li>
+        ) : f._type === "post" ? (
+          <li key={f._id} className="rounded-2xl bg-stone-800 p-3">
+            <p className="font-semibold text-stone-200">{f.name}</p>
+            {f.publishedAt && (
+              <time dateTime={f.publishedAt} className="text-stone-600">
+                {formatDate(f.publishedAt, {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </time>
+            )}
+            <p className="text-stone-400 line-clamp-5 mt-5">
+              {f.shortDescription}
+            </p>
+          </li>
+        ) : (
+          // File type was unable to be defined
+          <li key={i}>Could not identify file type</li>
+        ),
+      )}
     </ul>
   );
 }
@@ -40,14 +72,16 @@ function FileView({ file }: { file: FileNode }) {
     case "aboutMe":
       return (
         <article>
-          <h2>{file.name}</h2>
+          <h2 className="text-stone-800 mb-5">{file.name}</h2>
           <dl>
             {(["who", "what", "when", "where", "why"] as const).map(
               (key) =>
                 file[key] && (
                   <div key={key}>
-                    <dt className="font-semibold capitalize">{key}</dt>
-                    <dd>{file[key]}</dd>
+                    <dt className="text-stone-800 font-semibold capitalize">
+                      {key}
+                    </dt>
+                    <dd className="text-stone-800">{file[key]}</dd>
                   </div>
                 ),
             )}
@@ -80,9 +114,12 @@ function FileView({ file }: { file: FileNode }) {
     case "post":
       return (
         <article>
-          <h2>{file.title}</h2>
+          <h2 className="text-stone-800">{file.title}</h2>
           {file.publishedAt && (
-            <time dateTime={file.publishedAt} className="opacity-75">
+            <time
+              dateTime={file.publishedAt}
+              className="opacity-75 text-stone-500"
+            >
               {formatDate(file.publishedAt, {
                 month: "long",
                 day: "numeric",
@@ -91,7 +128,9 @@ function FileView({ file }: { file: FileNode }) {
             </time>
           )}
           {file.shortDescription && (
-            <p className="italic">{file.shortDescription}</p>
+            <p className="italic text-stone-800 font-semibold mb-5">
+              {file.shortDescription}
+            </p>
           )}
           <RichText blocks={file.body} />
         </article>
@@ -117,7 +156,7 @@ function projectDates(project: Project) {
     : project.endDate
       ? formatDate(project.endDate, short)
       : "?";
-  return `${start} – ${end}`;
+  return `${start} - ${end}`;
 }
 
 // ---------- Portable Text ----------

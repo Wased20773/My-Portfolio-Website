@@ -25,13 +25,15 @@ export default function Terminal({ cwd, setCWD, setOutput }: TerminalProps) {
     switch (command) {
       case "cd": {
         const target = resolvePath(arg ?? "~", cwd); // plain `cd` goes home
-        if (await getDirectory(target)) setCWD(target);
-        else
+        if (await getDirectory(target)) {
+          setCWD(target);
+          setOutput(null);
+        } else {
           setOutput({
             kind: "error",
             message: `cd: ${arg}: No such file or directory`,
           });
-        setOutput(null);
+        }
         break;
       }
       case "ls": {

@@ -128,13 +128,7 @@
         "isOngoing": false,
         "name": "akkadian-capstone-project.md",
         "startDate": "2026-01-01",
-        "tech": [
-          "Django",
-          "HTMX",
-          "TailwindCSS",
-          "DaisyUI",
-          "PostgreSQL"
-        ],
+        "tech": ["Django", "HTMX", "TailwindCSS", "DaisyUI", "PostgreSQL"],
         "title": "Akkadian (Capstone Project)"
       },
       {
@@ -250,13 +244,7 @@
         "isOngoing": false,
         "name": "freelance-web-developer-tacos-el-guero.md",
         "startDate": "2025-06-01",
-        "tech": [
-          "Vite",
-          "JavaScript",
-          "CSS",
-          "AWS S3",
-          "CloudFront"
-        ],
+        "tech": ["Vite", "JavaScript", "CSS", "AWS S3", "CloudFront"],
         "title": "Freelance Web Developer (Tacos El Guero)"
       }
     ],

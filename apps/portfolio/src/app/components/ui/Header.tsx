@@ -48,7 +48,7 @@ export default function Header() {
       </ul>
 
       {/* Introductory Heading */}
-      <div className="mx-3 mt-1">
+      <div className="max-w-[1200px] mx-auto mt-1">
         <h1 className="!text-5xl">Bryan Vazquez</h1>
         <p className="!text-3xl opacity-50 font-normal">
           React Front-end Developer
