@@ -25,8 +25,11 @@ export default function OutputScreen({ output }: { output: Output }) {
 
 function OutputResults({ output, navOpen = true }: OutputScreenResults) {
   return (
-    <div className="min-h-[100px] bg-surface rounded-md p-3 m-2">
-      <div className="grid grid-rows-[auto_auto_1fr] grid-cols-1 md:grid-rows-1 md:grid-cols-[30%_auto_1fr] gap-3">
+    <div className="min-h-[100px] bg-surface rounded-md overflow-hidden p-3 m-2">
+      <div
+        key={outputKey(output)}
+        className="grid grid-rows-[auto_auto_1fr] grid-cols-1 md:grid-rows-1 md:grid-cols-[30%_auto_1fr] gap-3"
+      >
         {/* Left Panel (folders) */}
         {navOpen === true && (
           <nav
@@ -54,4 +57,17 @@ function OutputResults({ output, navOpen = true }: OutputScreenResults) {
       </div>
     </div>
   );
+}
+
+// A new key remounts the panels, which replays their entrance animation
+function outputKey(output: Output): string {
+  if (!output) return "empty";
+  switch (output.kind) {
+    case "ls":
+      return `ls:${output.dir.cwd}`;
+    case "file":
+      return `file:${output.file._id}`;
+    case "error":
+      return `error:${output.message}`;
+  }
 }

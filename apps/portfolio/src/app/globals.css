@@ -1,5 +1,38 @@
 @import "tailwindcss";
 
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(92px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* 
 ########################################
 ################ THEMES ################
@@ -59,6 +92,17 @@
 
   /* Status */
   --danger: oklch(50.5% 0.213 27.518); /* red-700: error messages */
+
+  /* ##### ANIMATIONS ##### */
+  /* Left Panel */
+  --reveal: reveal 450ms ease-out;
+
+  /* Right Panel */
+  --slide-in-left: slide-in-left 100ms ease-out both;
+  --stagger: 60ms;
+
+  /* cat */
+  --fade-in-content: fade-in 300ms ease-in;
 }
 
 /* Maps tokens to utilities (bg-panel, text-ink, border-divider, shadow-panel, ...).
@@ -98,6 +142,11 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* animation */
+  --animate-reveal: var(--reveal);
+  --animate-slide-in-left: var(--slide-in-left);
+  --animate-fade-in-content: var(--fade-in-content);
 }
 
 body {

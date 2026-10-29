@@ -26,14 +26,18 @@ function Listing({ dir }: { dir: Directory }) {
         f._type === "aboutMe" ? (
           <li
             key={f._id}
-            className="text-card-ink rounded-md bg-card px-2 py-1"
+            // --i: CSS Variable
+            style={{ "--i": i } as React.CSSProperties}
+            className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] text-card-ink rounded-md bg-card px-2 py-1"
           >
             <p className="font-semibold">{f.name}</p>
           </li>
         ) : f._type === "project" ? (
           <li
             key={f._id}
-            className="flex flex-col justify-between text-card-ink rounded-md bg-card px-2 py-1"
+            // --i: CSS Variable
+            style={{ "--i": i } as React.CSSProperties}
+            className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] flex flex-col justify-between text-card-ink rounded-md bg-card px-2 py-1"
           >
             <p className="font-semibold">{f.name}</p>
             {/* {f.tech && (
@@ -42,7 +46,11 @@ function Listing({ dir }: { dir: Directory }) {
             <p className="text-card-muted">{projectDates(f)}</p>
           </li>
         ) : f._type === "post" ? (
-          <li key={f._id} className="rounded-2xl bg-card-alt p-3">
+          <li
+            key={f._id} // --i: CSS Variable
+            style={{ "--i": i } as React.CSSProperties}
+            className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] rounded-2xl bg-card-alt p-3"
+          >
             <p className="font-semibold text-card-alt-ink">{f.name}</p>
             {f.publishedAt && (
               <time dateTime={f.publishedAt} className="text-card-alt-faint">
@@ -72,7 +80,7 @@ function FileView({ file }: { file: FileNode }) {
   switch (file._type) {
     case "aboutMe":
       return (
-        <article>
+        <article className="motion-safe:animate-fade-in-content">
           <h2 className="text-ink mb-5">{file.name}</h2>
           <dl>
             {(["who", "what", "when", "where", "why"] as const).map(
@@ -91,7 +99,7 @@ function FileView({ file }: { file: FileNode }) {
 
     case "project":
       return (
-        <article>
+        <article className="motion-safe:animate-fade-in-content">
           <h2 className="text-ink">{file.title}</h2>
           <p className="text-muted">{projectDates(file)}</p>
           {file.tech && (
@@ -109,7 +117,7 @@ function FileView({ file }: { file: FileNode }) {
 
     case "post":
       return (
-        <article>
+        <article className="motion-safe:animate-fade-in-content">
           <h2 className="text-ink">{file.title}</h2>
           {file.publishedAt && (
             <time dateTime={file.publishedAt} className="text-muted">
