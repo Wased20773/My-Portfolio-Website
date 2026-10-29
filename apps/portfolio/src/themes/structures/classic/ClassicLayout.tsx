@@ -13,7 +13,7 @@ export default function ClassicLayout({ terminal }: LayoutProps) {
         <OutputScreen output={terminal.output} />
       </main>
 
-      <footer>this is the footer</footer>
+      {/* <footer>this is the footer</footer> */}
     </div>
   );
 }

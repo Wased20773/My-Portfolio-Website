@@ -5,12 +5,12 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 const phrases: RotatingTypewriterPhrase[] = [
-  { text: "Sofware Engineer", variant: "mute" },
+  { text: "Sofware Engineer", variant: "normal" },
   { text: "React Developer", variant: "highlight" },
   { text: "Full-Stack Developer", variant: "highlight" },
-  { text: "Product Builder", variant: "highlight" },
+  { text: "UI Developer", variant: "underline" },
   { text: "Freelancer", variant: "normal" },
-  { text: "UI Developer.", variant: "underline" },
+  { text: "Product Builder.", variant: "bold" },
 ];
 
 export default function Header() {
@@ -60,11 +60,11 @@ export default function Header() {
       </ul>
 
       {/* Introductory Heading */}
-      <div className="relative isolate max-w-[1200px] mx-auto mt-1">
+      <div className="relative isolate max-w-[800px] mx-auto mt-1">
         <div className="relative">
           <span
             aria-hidden="true"
-            className="border-[0.2rem] border-hero-shape-border-color motion-safe:animate-morph shape-hero absolute -left-6 -top-4 -z-10 h-32 w-72 max-w-full bg-hero-shape"
+            className="border-[0.2rem] border-hero-shape-border-color motion-safe:animate-morph shape-hero absolute -left-6 -inset-y-4 -z-10 w-72 max-w-full bg-hero-shape"
           />
 
           <h1 className="motion-safe:animate-wipe w-fit !text-5xl text-header">
@@ -79,7 +79,9 @@ export default function Header() {
             />
           </p>
         </div>
+      </div>
 
+      <div className="relative max-w-[1000px] mx-auto">
         <p className="text-center my-5">
           Building apps to solve{" "}
           <span className="font-semibold">real problems</span>, type-safety,
