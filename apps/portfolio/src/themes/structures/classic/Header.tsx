@@ -5,10 +5,11 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 const phrases: RotatingTypewriterPhrase[] = [
-  { text: "Sofware Engineer.", variant: "mute" },
-  { text: "React Developer.", variant: "highlight" },
-  { text: "Full-Stack Developer.", variant: "highlight" },
+  { text: "Sofware Engineer", variant: "mute" },
+  { text: "React Developer", variant: "highlight" },
+  { text: "Full-Stack Developer", variant: "highlight" },
   { text: "Product Builder", variant: "highlight" },
+  { text: "Freelancer", variant: "normal" },
   { text: "UI Developer.", variant: "underline" },
 ];
 
@@ -71,8 +72,6 @@ export default function Header() {
           accessibility friendly, and creating seamless interfaces from complex
           problems.
         </p>
-
-        {/* Insert animated text */}
       </div>
     </header>
   );

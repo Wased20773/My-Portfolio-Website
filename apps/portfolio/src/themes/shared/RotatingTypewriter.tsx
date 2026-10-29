@@ -74,9 +74,15 @@ export default function RotatingTypewriter({
   ]);
 
   return (
-    <span className={`${phrase.className} ${getVariantClass(phrase.variant)}`}>
-      {displayedText}
-      <span className="cursor-blink border-l-[0.1rem]"></span>
+    <span className={getVariantClass(phrase.variant)}>
+      {/* Screen readers: every phrase, once, never changing */}
+      <span className="sr-only">{phrases.map((p) => p.text).join(", ")}</span>
+
+      {/* What sighted users see, laid over the reserved space */}
+      <span aria-hidden="true" className={`${phrase.className ?? ""}`}>
+        {displayedText}
+        <span className="cursor-blink border-l-[0.1rem]" />
+      </span>
     </span>
   );
 }
