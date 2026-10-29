@@ -18,7 +18,7 @@ export default function Header() {
     <header>
       {/* Top Heading */}
       <ul
-        className="flex justify-end items-center flex-wrap gap-4 bg-topbar px-3 py-1"
+        className="relative z-10 flex justify-end items-center flex-wrap gap-4 bg-topbar px-3 py-1"
         aria-label="My Social links"
       >
         {/* Maybe add a dropdown button to show all my social links below w-[400px]? */}
@@ -60,11 +60,25 @@ export default function Header() {
       </ul>
 
       {/* Introductory Heading */}
-      <div className="max-w-[1200px] mx-auto mt-1">
-        <h1 className="!text-5xl text-header">Bryan Vazquez</h1>
-        <p className="!text-3xl">
-          I am a <RotatingTypewriter phrases={phrases} pause={3000} />
-        </p>
+      <div className="relative isolate max-w-[1200px] mx-auto mt-1">
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="border-[0.2rem] border-hero-shape-border-color motion-safe:animate-morph shape-hero absolute -left-6 -top-4 -z-10 h-32 w-72 max-w-full bg-hero-shape"
+          />
+
+          <h1 className="motion-safe:animate-wipe w-fit !text-5xl text-header">
+            Bryan Vazquez
+          </h1>
+          <p className="!text-3xl">
+            I am a{" "}
+            <RotatingTypewriter
+              phrases={phrases}
+              pause={1500}
+              startDelay={2000}
+            />
+          </p>
+        </div>
 
         <p className="text-center my-5">
           Building apps to solve{" "}

@@ -17,6 +17,7 @@ export type RotatingTypewriterPhrase = {
 
 type RotatingTypewriterProps = {
   phrases: RotatingTypewriterPhrase[];
+  startDelay?: number;
   typeSpeed?: number;
   deleteSpeed?: number;
   pause?: number;
@@ -24,10 +25,12 @@ type RotatingTypewriterProps = {
 
 export default function RotatingTypewriter({
   phrases,
+  startDelay = 0,
   typeSpeed = 75,
   deleteSpeed = 40,
   pause = 1500,
 }: RotatingTypewriterProps) {
+  const [started, setStarted] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [characterIndex, setCharacterIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -45,7 +48,14 @@ export default function RotatingTypewriter({
       delay = pause;
     }
 
+    if (!started) delay = startDelay;
+
     const timeout = setTimeout(() => {
+      if (!started) {
+        setStarted(true);
+        return;
+      }
+
       // Start deleting after pause
       if (!deleting && characterIndex === phrase.text.length) {
         setDeleting(true);
@@ -64,6 +74,8 @@ export default function RotatingTypewriter({
 
     return () => clearTimeout(timeout);
   }, [
+    started,
+    startDelay,
     characterIndex,
     deleting,
     phrase,
