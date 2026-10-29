@@ -1,5 +1,16 @@
+import RotatingTypewriter, {
+  RotatingTypewriterPhrase,
+} from "@/themes/shared/RotatingTypewriter";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
+
+const phrases: RotatingTypewriterPhrase[] = [
+  { text: "Sofware Engineer.", variant: "mute" },
+  { text: "React Developer.", variant: "highlight" },
+  { text: "Full-Stack Developer.", variant: "highlight" },
+  { text: "Product Builder", variant: "highlight" },
+  { text: "UI Developer.", variant: "underline" },
+];
 
 export default function Header() {
   return (
@@ -40,7 +51,7 @@ export default function Header() {
         <li>
           <a className="flex gap-2" href="#">
             <MdOutlineEmail size={24} className="text-accent" />
-            <span>
+            <span className="text-white">
               Bvazquez1745<span className="text-accent">@</span>gmail.com
             </span>
           </a>
@@ -49,12 +60,12 @@ export default function Header() {
 
       {/* Introductory Heading */}
       <div className="max-w-[1200px] mx-auto mt-1">
-        <h1 className="!text-5xl">Bryan Vazquez</h1>
-        <p className="!text-3xl opacity-50 font-normal">
-          React Front-end Developer
+        <h1 className="!text-5xl text-header">Bryan Vazquez</h1>
+        <p className="!text-3xl">
+          I am a <RotatingTypewriter phrases={phrases} pause={3000} />
         </p>
 
-        <p className="text-center">
+        <p className="text-center my-5">
           Building apps to solve{" "}
           <span className="font-semibold">real problems</span>, type-safety,
           accessibility friendly, and creating seamless interfaces from complex
