@@ -1,25 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import Header from "./components/ui/Header";
-import OutputScreen from "./components/ui/outputPanel/OutputScreen";
-import Terminal from "./components/ui/Terminal";
-import { Output } from "@/data/type";
+import { useTheme } from "@/themes/ThemeProvider";
+import { useTerminal } from "@/lib/useTerminal";
+import { themeStructure } from "@/themes/themes";
+import { layouts } from "@/themes/structures";
 
 export default function Home() {
-  const [cwd, setCWD] = useState<string>("~/");
-  const [output, setOutput] = useState<Output>(null);
+  const terminal = useTerminal();
+  const { theme } = useTheme();
 
-  return (
-    <div>
-      <Header />
-
-      <main className="max-w-[1200px] mx-auto">
-        <Terminal cwd={cwd} setCWD={setCWD} setOutput={setOutput} />
-        <OutputScreen output={output} />
-      </main>
-
-      <footer>this is the footer</footer>
-    </div>
-  );
+  const Layout = layouts[themeStructure[theme]];
+  return <Layout terminal={terminal} />; // HTML, swapped on theme change
 }

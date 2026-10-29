@@ -1,13 +1,101 @@
 @import "tailwindcss";
 
-:root {
+/* 
+########################################
+################ THEMES ################
+########################################
+
+  Values mirror the Tailwind classes the
+  components use. When entering in the
+  terminal "theme <type>" the webpage
+  changes its entire styling look. Using
+  data-theme="<type>" inside of <html>:
+
+    <html ... data-theme="default">...</html>
+
+  Any rule unset from root persist the
+  default theme.
+*/
+/* ---------- Theme: default ---------- */
+:root,
+[data-theme="default"] {
+  /* Page */
   --background: #37413b;
   --foreground: #f5f5f5;
+
+  /* Chrome */
+  --topbar: oklch(14.7% 0.004 49.25); /* stone-950: header social bar */
+  --terminal: oklch(14.7% 0.004 49.25); /* stone-950: terminal box */
+  --accent: oklch(63.7% 0.237 25.331); /* red-500: email icon + @ */
+
+  /* Output screen */
+  --surface: oklch(86.9% 0.005 56.366); /* stone-300: outer output box */
+  --panel: oklch(55.3% 0.013 58.071); /* stone-500: nav panel */
+  --panel-shadow: -5px 9px 5px 0 rgb(0 0 0 / 0.25);
+  --divider: oklch(70.9% 0.01 56.259); /* stone-400: dashed divider */
+
+  /* Folder chips (ls, left panel) */
+  --chip: oklch(92.3% 0.003 48.717); /* stone-200 */
+  --chip-ink: oklch(27.8% 0.033 256.848); /* gray-800 */
+
+  /* Light cards (aboutMe / project in ls) */
+  --card: oklch(97% 0.001 106.424); /* stone-100 */
+  --card-ink: oklch(27.8% 0.033 256.848); /* gray-800 */
+  --card-muted: oklch(44.4% 0.011 73.639); /* stone-600: project dates */
+
+  /* Dark cards (post in ls) */
+  --card-alt: oklch(26.8% 0.007 34.298); /* stone-800 */
+  --card-alt-ink: oklch(92.3% 0.003 48.717); /* stone-200: title */
+  --card-alt-faint: oklch(44.4% 0.011 73.639); /* stone-600: date */
+  --card-alt-muted: oklch(70.9% 0.01 56.259); /* stone-400: description */
+
+  /* Tech pills */
+  --pill: oklch(26.8% 0.007 34.298); /* stone-800 */
+  --pill-ink: oklch(86.9% 0.005 56.366); /* stone-300 */
+
+  /* File content (cat) */
+  --ink: oklch(26.8% 0.007 34.298); /* stone-800: headings + body */
+  --muted: oklch(55.3% 0.013 58.071); /* stone-500: dates */
+
+  /* Status */
+  --danger: oklch(50.5% 0.213 27.518); /* red-700: error messages */
 }
 
+/* Maps tokens to utilities (bg-panel, text-ink, border-divider, shadow-panel, ...).
+   `inline` makes each utility read the var on the element itself, so data-theme wins. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-topbar: var(--topbar);
+  --color-terminal: var(--terminal);
+  --color-accent: var(--accent);
+
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-divider: var(--divider);
+
+  --color-chip: var(--chip);
+  --color-chip-ink: var(--chip-ink);
+
+  --color-card: var(--card);
+  --color-card-ink: var(--card-ink);
+  --color-card-muted: var(--card-muted);
+
+  --color-card-alt: var(--card-alt);
+  --color-card-alt-ink: var(--card-alt-ink);
+  --color-card-alt-muted: var(--card-alt-muted);
+  --color-card-alt-faint: var(--card-alt-faint);
+
+  --color-pill: var(--pill);
+  --color-pill-ink: var(--pill-ink);
+
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-danger: var(--danger);
+
+  --shadow-panel: var(--panel-shadow);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

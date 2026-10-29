@@ -19,10 +19,7 @@ function Listing({ dir }: { dir: Directory }) {
   return (
     <ul className="grid md:flex md:flex-col gap-2 flex-wrap font-mono">
       {dir.folders.map((f) => (
-        <li
-          key={f.cwd}
-          className="text-gray-800 rounded-md bg-stone-200 px-2 py-1"
-        >
+        <li key={f.cwd} className="text-chip-ink rounded-md bg-chip px-2 py-1">
           {f.name}/
         </li>
       ))}

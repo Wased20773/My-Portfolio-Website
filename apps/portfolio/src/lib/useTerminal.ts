@@ -1,25 +1,15 @@
-"use client";
-
+import { useState } from "react";
 import { Output } from "@/data/type";
-import { getDirectory, getFile, resolvePath } from "@/lib/fs";
-import { Dispatch, SetStateAction, useRef } from "react";
+import { getDirectory, getFile, resolvePath } from "./fs";
+import { useTheme } from "@/themes/ThemeProvider";
+import { isThemeName } from "@/themes/themes";
 
-type TerminalProps = {
-  cwd: string;
-  setCWD: Dispatch<SetStateAction<string>>;
-  setOutput: Dispatch<SetStateAction<Output>>;
-};
+export function useTerminal() {
+  const [cwd, setCWD] = useState<string>("~/");
+  const [output, setOutput] = useState<Output>(null);
+  const { setTheme } = useTheme();
 
-export default function Terminal({ cwd, setCWD, setOutput }: TerminalProps) {
-  const inputRef = useRef<HTMLSpanElement>(null);
-
-  async function handleKeyDown(e: React.KeyboardEvent<HTMLSpanElement>) {
-    if (e.key !== "Enter") return;
-    e.preventDefault(); // stop contentEditable from inserting a new line
-
-    const input = inputRef.current?.textContent?.trim() ?? "";
-    if (inputRef.current) inputRef.current.textContent = "";
-
+  async function run(input: string) {
     const [command, arg] = input.split(/\s+/);
 
     switch (command) {
@@ -64,7 +54,13 @@ export default function Terminal({ cwd, setCWD, setOutput }: TerminalProps) {
             message: `clear ${arg}: Did you mean clear?`,
           });
         } else setOutput(null);
+        break;
       }
+      case "theme":
+        if (!arg) break;
+        if (!isThemeName(arg)) break;
+        else setTheme(arg);
+        break;
       case "":
         break;
       default:
@@ -72,28 +68,7 @@ export default function Terminal({ cwd, setCWD, setOutput }: TerminalProps) {
     }
   }
 
-  return (
-    <div className="cursor-text m-1">
-      <p className="opacity-75">
-        Terminal: Type `&quot;` to view all commands.
-      </p>
-      <div
-        onClick={() => inputRef.current?.focus()}
-        onKeyDown={handleKeyDown}
-        className="cursor-text bg-stone-950 p-1 font-mono"
-      >
-        <span>bryan@portfolio:{cwd.replace(/\/$/, "")}$ </span>
-        <span
-          ref={inputRef}
-          contentEditable
-          suppressContentEditableWarning
-          role="textbox"
-          aria-label="Terminal command"
-          tabIndex={0}
-          spellCheck={false}
-          className="whitespace-pre-wrap break-all outline-none"
-        />
-      </div>
-    </div>
-  );
+  return { cwd, output, run };
 }
+
+export type TerminalState = ReturnType<typeof useTerminal>; // { cwd, output, run }

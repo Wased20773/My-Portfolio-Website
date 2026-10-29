@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       {/* Top Heading */}
       <ul
-        className="flex justify-end items-center flex-wrap gap-4 bg-stone-950 px-3 py-1"
+        className="flex justify-end items-center flex-wrap gap-4 bg-topbar px-3 py-1"
         aria-label="My Social links"
       >
         {/* Maybe add a dropdown button to show all my social links below w-[400px]? */}
@@ -39,9 +39,9 @@ export default function Header() {
         {/* TODO: Change to button when contact-me content has been created */}
         <li>
           <a className="flex gap-2" href="#">
-            <MdOutlineEmail size={24} className="text-red-500" />
+            <MdOutlineEmail size={24} className="text-accent" />
             <span>
-              Bvazquez1745<span className="text-red-500">@</span>gmail.com
+              Bvazquez1745<span className="text-accent">@</span>gmail.com
             </span>
           </a>
         </li>
