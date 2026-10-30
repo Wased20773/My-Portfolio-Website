@@ -1,3 +1,5 @@
+import type { CommandTypes } from "@/lib/commands";
+
 // ---------- Rich text (Sanity Portable Text, matches blockContent.ts) ----------
 
 export type Span = {
@@ -27,6 +29,7 @@ export type Output =
   | { kind: "error"; message: string }
   | { kind: "ls"; dir: Directory }
   | { kind: "file"; file: FileNode }
+  | { kind: "help"; cmds: "all" | CommandTypes }
   | null;
 
 // ---------- Files ----------

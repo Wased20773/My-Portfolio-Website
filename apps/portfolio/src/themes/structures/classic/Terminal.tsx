@@ -23,7 +23,7 @@ export default function Terminal({ cwd, run }: TerminalProps) {
   return (
     <div className="cursor-text m-1">
       <p className="opacity-75">
-        Terminal: Type `&quot;` to view all commands.
+        Terminal: Type &quot;help&quot; to view available commands.
       </p>
       <div
         onClick={() => inputRef.current?.focus()}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Output } from "@/data/type";
 import { getDirectory, getFile, resolvePath } from "./fs";
+import { isCommand } from "./commands";
 import { useTheme } from "@/themes/ThemeProvider";
 import { isThemeName } from "@/themes/themes";
 
@@ -13,6 +14,21 @@ export function useTerminal() {
     const [command, arg] = input.split(/\s+/);
 
     switch (command) {
+      case "help": {
+        // help with specific cmd or show all cmds
+        if (!arg) {
+          setOutput({ kind: "help", cmds: "all" });
+        } else if (isCommand(arg)) {
+          setOutput({ kind: "help", cmds: arg });
+        } else {
+          setOutput({
+            kind: "error",
+            message: `help: no help topics match '${arg}'`,
+          });
+        }
+        break;
+      }
+
       case "cd": {
         const target = resolvePath(arg ?? "~", cwd); // plain `cd` goes home
         if (await getDirectory(target)) {
@@ -26,6 +42,7 @@ export function useTerminal() {
         }
         break;
       }
+
       case "ls": {
         const dir = await getDirectory(resolvePath(arg ?? ".", cwd)); // plain `ls` = here
         if (dir) setOutput({ kind: "ls", dir });
@@ -36,6 +53,7 @@ export function useTerminal() {
           });
         break;
       }
+
       case "cat": {
         if (!arg) break;
         const file = await getFile(arg, cwd);
@@ -47,6 +65,7 @@ export function useTerminal() {
           });
         break;
       }
+
       case "clear": {
         if (arg) {
           setOutput({
@@ -56,15 +75,21 @@ export function useTerminal() {
         } else setOutput(null);
         break;
       }
-      case "theme":
+
+      case "theme": {
         if (!arg) break;
         if (!isThemeName(arg)) break;
         else setTheme(arg);
         break;
-      case "":
+      }
+
+      case "": {
         break;
-      default:
+      }
+
+      default: {
         setOutput({ kind: "error", message: `${command}: command not found` });
+      }
     }
   }
 

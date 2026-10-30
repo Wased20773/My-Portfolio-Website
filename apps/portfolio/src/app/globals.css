@@ -156,6 +156,10 @@
   --panel-shadow: -5px 9px 5px 0 rgb(0 0 0 / 0.25);
   --divider: oklch(70.9% 0.01 56.259); /* stone-400: dashed divider */
 
+  /* code snipits */
+  --code: oklch(44.4% 0.011 73.639); /* stone-700: inline <code> background */
+  --code-ink: oklch(92.3% 0.003 48.717); /* amber-300: inline <code> text */
+
   /* Folder chips (ls, left panel) */
   --chip: oklch(92.3% 0.003 48.717); /* stone-200 */
   --chip-ink: oklch(27.8% 0.033 256.848); /* gray-800 */
@@ -222,6 +226,9 @@
   --color-panel: var(--panel);
   --color-divider: var(--divider);
 
+  --color-code: var(--code);
+  --color-code-ink: var(--code-ink);
+
   --color-chip: var(--chip);
   --color-chip-ink: var(--chip-ink);
 
@@ -267,5 +274,9 @@ body {
 
   h2 {
     @apply text-2xl font-bold;
+  }
+
+  code {
+    @apply bg-code text-code-ink rounded px-1;
   }
 }

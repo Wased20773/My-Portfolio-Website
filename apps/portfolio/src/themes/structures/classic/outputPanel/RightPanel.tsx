@@ -1,5 +1,7 @@
 // Where terminal cmd output lives
 
+import { Fragment } from "react";
+import { commands, withCode, type CommandTypes } from "@/lib/commands";
 import { formatDate, projectDates } from "@/lib/dates";
 import RichText from "@/themes/shared/RichText";
 import type { Directory, FileNode, Output } from "@/data/type";
@@ -10,11 +12,84 @@ export default function RightPanel({ output }: { output: Output }) {
   switch (output.kind) {
     case "error":
       return <p className="font-mono text-danger">{output.message}</p>;
+
+    case "help":
+      return <HelpView cmd={output.cmds} />;
+
     case "ls":
       return <Listing dir={output.dir} />;
+
     case "file":
       return <FileView file={output.file} />;
   }
+}
+
+// ---------- help ----------
+function HelpView({ cmd }: { cmd: CommandTypes | "all" }) {
+  if (cmd === "all") {
+    return (
+      <div className="motion-safe:animate-fade-in-content font-mono text-ink">
+        <div className="mb-5">
+          <div className="flex flex-col gap-5">
+            <p>
+              A mock version of the Linux experience with my personal custom
+              made features & UI. Not everything is 1:1 like how output is
+              rendered with <code>ls</code>. I plan to make more features as I
+              continue developing this portfolio!
+            </p>
+            <div>
+              <p>To catch up on the latest features go to my newsletter:</p>
+              <p>
+                - <code>cd ~/newsletter</code>
+              </p>
+              <p>
+                - <code>cat</code> the latest post regarding terminal features.
+              </p>
+            </div>
+
+            <div>
+              <p>
+                Type <code>help</code> to see this list.
+              </p>
+              <p>
+                Type <code>help [command]</code> to get more info about the
+                command.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <dl className="grid grid-cols-[auto_1fr] gap-x-5">
+          {Object.entries(commands).map(([name, c]) => (
+            <Fragment key={name}>
+              <dt className="font-semibold">{c.usage}</dt>
+              <dd>{c.description}</dd>
+            </Fragment>
+          ))}
+        </dl>
+      </div>
+    );
+  }
+
+  // help [command] -> details + examples for just that one
+
+  const c = commands[cmd];
+
+  return (
+    <div className="motion-safe:animate-fade-in-content font-mono text-ink">
+      <h2>{c.usage}</h2>
+      <p className="mb-5">{withCode(c.details)}</p>
+
+      <dl className="grid grid-cols-[auto_1fr] gap-x-5">
+        {c.info.map((ex) => (
+          <Fragment key={ex.usage}>
+            <dt className="font-semibold">{ex.usage}</dt>
+            <dd>{ex.description}</dd>
+          </Fragment>
+        ))}
+      </dl>
+    </div>
+  );
 }
 
 // ---------- ls ----------

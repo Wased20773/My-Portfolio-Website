@@ -16,8 +16,13 @@ export default function OutputScreen({ output }: { output: Output }) {
   switch (output.kind) {
     case "error":
       return <OutputResults output={output} />;
+
+    case "help":
+      return <OutputResults output={output} navOpen={false} />;
+
     case "ls":
       return <OutputResults output={output} />;
+
     case "file":
       return <OutputResults output={output} navOpen={false} />;
   }
@@ -63,10 +68,15 @@ function OutputResults({ output, navOpen = true }: OutputScreenResults) {
 function outputKey(output: Output): string {
   if (!output) return "empty";
   switch (output.kind) {
+    case "help":
+      return `help:${output.cmds}`;
+
     case "ls":
       return `ls:${output.dir.cwd}`;
+
     case "file":
       return `file:${output.file._id}`;
+
     case "error":
       return `error:${output.message}`;
   }

@@ -64,7 +64,7 @@ export default function Header() {
         <div className="relative">
           <span
             aria-hidden="true"
-            className="border-[0.2rem] border-hero-shape-border-color motion-safe:animate-morph shape-hero absolute -left-6 -inset-y-4 -z-10 w-72 max-w-full bg-hero-shape"
+            className="border-[0.15rem] border-hero-shape-border-color motion-safe:animate-morph shape-hero absolute -left-6 -inset-y-4 -z-10 w-72 max-w-full bg-hero-shape"
           />
 
           <h1 className="motion-safe:animate-wipe w-fit !text-5xl text-header">
