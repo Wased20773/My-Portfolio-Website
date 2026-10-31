@@ -9,7 +9,11 @@ export default function ClassicLayout({ terminal }: LayoutProps) {
       <Header />
 
       <main className="max-w-[1200px] mx-auto">
-        <Terminal cwd={terminal.cwd} run={terminal.run} />
+        <Terminal
+          run={terminal.run}
+          prompt={terminal.prompt}
+          history={terminal.history}
+        />
         <OutputScreen output={terminal.output} />
       </main>
 

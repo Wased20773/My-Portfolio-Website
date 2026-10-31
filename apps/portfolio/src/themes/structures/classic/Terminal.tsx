@@ -3,11 +3,12 @@
 import { useRef } from "react";
 
 type TerminalProps = {
-  cwd: string;
   run: (input: string) => void;
+  prompt: string; // "bryan@portfolio:~$ " or the running script's question
+  history: string[]; // lines a script printed into the terminal
 };
 
-export default function Terminal({ cwd, run }: TerminalProps) {
+export default function Terminal({ run, prompt, history }: TerminalProps) {
   const inputRef = useRef<HTMLSpanElement>(null);
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLSpanElement>) {
@@ -30,17 +31,28 @@ export default function Terminal({ cwd, run }: TerminalProps) {
         onKeyDown={handleKeyDown}
         className="cursor-text bg-terminal p-1 font-mono"
       >
-        <span>bryan@portfolio:{cwd.replace(/\/$/, "")}$ </span>
-        <span
-          ref={inputRef}
-          contentEditable
-          suppressContentEditableWarning
-          role="textbox"
-          aria-label="Terminal command"
-          tabIndex={0}
-          spellCheck={false}
-          className="whitespace-pre-wrap break-all outline-none"
-        />
+        {/* Script lines; role="log" lets screen readers announce each new one */}
+        <div role="log">
+          {history.map((line, i) => (
+            <p key={i} className="whitespace-pre-wrap break-all">
+              {line}
+            </p>
+          ))}
+        </div>
+
+        <div>
+          <span>{prompt}</span>
+          <span
+            ref={inputRef}
+            contentEditable
+            suppressContentEditableWarning
+            role="textbox"
+            aria-label="Terminal command"
+            tabIndex={0}
+            spellCheck={false}
+            className="whitespace-pre-wrap break-all outline-none"
+          />
+        </div>
       </div>
     </div>
   );
