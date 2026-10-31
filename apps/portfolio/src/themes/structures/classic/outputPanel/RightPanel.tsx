@@ -140,6 +140,15 @@ function Listing({ dir }: { dir: Directory }) {
               {f.shortDescription}
             </p>
           </li>
+        ) : f._type === "script" ? (
+          <li
+            key={f._id}
+            // --i: CSS Variable
+            style={{ "--i": i } as React.CSSProperties}
+            className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] text-card-ink rounded-md bg-card px-2 py-1"
+          >
+            <p className="font-semibold">{f.name}</p>
+          </li>
         ) : (
           // File type was unable to be defined
           <li key={i}>Could not identify file type</li>

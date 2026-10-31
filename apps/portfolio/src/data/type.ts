@@ -68,7 +68,13 @@ export type Post = {
   body: Block[] | null;
 };
 
-export type FileNode = AboutMe | Project | Post;
+export type ScriptFile = {
+  _id: string;
+  _type: "script";
+  name: string;
+};
+
+export type FileNode = AboutMe | Project | Post | ScriptFile;
 
 // ---------- Folders ----------
 

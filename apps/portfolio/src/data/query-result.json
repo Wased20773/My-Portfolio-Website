@@ -53,6 +53,11 @@
         "where": null,
         "who": "test",
         "why": null
+      },
+      {
+        "_id": "85fdf1d7-ccee-4eb5-a0a1-5ca38bb2c9fc",
+        "_type": "script",
+        "name": "contact.sh"
       }
     ],
     "folders": [
@@ -72,38 +77,24 @@
     "cwd": "~/projects/",
     "files": [
       {
-        "_id": "df3409ae-75f0-49a4-89fb-cf06eb758517",
+        "_id": "04db8a44-aca9-4b04-9002-13bd661357fa",
         "_type": "project",
         "description": [
           {
-            "_key": "a5f8735a01f2",
-            "_type": "block",
-            "children": [
-              {
-                "_key": "6bdf67a27697",
-                "_type": "span",
-                "marks": [],
-                "text": "Built a multi-tenant SaaS platform for multi-location businesses with Google OAuth, onboarding, and per-business role-based access control.\n\nCollaboration made easy by sharing a portal and records to be populated into a website. A developer worries about the code while the business owner worries about what content gets displayed. Using API..."
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
+            "_key": "44307af86ebd",
+            "_type": "image",
+            "asset": {
+              "_ref": "image-18d30f18d49f4a0ecb0cff594b81ff2c1dd382f2-1920x1080-png",
+              "_type": "reference"
+            }
           }
         ],
         "endDate": null,
-        "isOngoing": true,
-        "name": "multi-tenant-business-platform-app.md",
-        "startDate": "2026-06-01",
-        "tech": [
-          "Next.js",
-          "TypeScript",
-          "PostgreSQL",
-          "Prisma",
-          "Auth.js",
-          "Redis",
-          "AWS S3"
-        ],
-        "title": "Multi-tenant Business Platform App"
+        "isOngoing": false,
+        "name": "test.md",
+        "startDate": null,
+        "tech": null,
+        "title": "test"
       },
       {
         "_id": "1192fd5b-2633-4475-acf0-8ca76cb0ca11",
@@ -192,6 +183,40 @@
           "Vitest"
         ],
         "title": "Videogame Dashboard"
+      },
+      {
+        "_id": "df3409ae-75f0-49a4-89fb-cf06eb758517",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "a5f8735a01f2",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "6bdf67a27697",
+                "_type": "span",
+                "marks": [],
+                "text": "Built a multi-tenant SaaS platform for multi-location businesses with Google OAuth, onboarding, and per-business role-based access control.\n\nCollaboration made easy by sharing a portal and records to be populated into a website. A developer worries about the code while the business owner worries about what content gets displayed. Using API..."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": null,
+        "isOngoing": true,
+        "name": "multi-tenant-business-platform-app.md",
+        "startDate": "2026-06-01",
+        "tech": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "Auth.js",
+          "Redis",
+          "AWS S3"
+        ],
+        "title": "Multi-tenant Business Platform App"
       },
       {
         "_id": "fa101bbc-4a01-49c5-a3de-880457c815b5",
