@@ -77,26 +77,6 @@
     "cwd": "~/projects/",
     "files": [
       {
-        "_id": "04db8a44-aca9-4b04-9002-13bd661357fa",
-        "_type": "project",
-        "description": [
-          {
-            "_key": "44307af86ebd",
-            "_type": "image",
-            "asset": {
-              "_ref": "image-18d30f18d49f4a0ecb0cff594b81ff2c1dd382f2-1920x1080-png",
-              "_type": "reference"
-            }
-          }
-        ],
-        "endDate": null,
-        "isOngoing": false,
-        "name": "test.md",
-        "startDate": null,
-        "tech": null,
-        "title": "test"
-      },
-      {
         "_id": "1192fd5b-2633-4475-acf0-8ca76cb0ca11",
         "_type": "project",
         "description": [
@@ -108,7 +88,7 @@
                 "_key": "f4b4c0cb33bb",
                 "_type": "span",
                 "marks": [],
-                "text": "CHANGE ME\n\n– Developed core features for a syllabus builder web application used by instructors to create and manage course syllabi\n– Constructed dynamic tab-based workflows and content management features using HTMX partial updates and Django\ntemplates based on MVP requirements\n– Designed reusable responsive UI components with TailwindCSS and DaisyUI across multiple modules\n– Led frontend development, shaped UI/UX decisions, and provided design feedback and technical guidance to teammates\n– Collaborated within a 7-person Agile team using GitHub, Jira, code reviews, and sprint-based development practices\nVideogame Dashboard (Vite, NodeJS, ExpressJS, REST APIs, Vercel, Render, Vitest) Nov 2025 – Dec 20"
+                "text": "CHANGE ME\n\n– Developed core features for a syllabus builder web application used by instructors to create and manage course syllabi\n– Constructed dynamic tab-based workflows and content management features using HTMX partial updates and Django\ntemplates based on MVP requirements\n– Designed reusable responsive UI components with TailwindCSS and DaisyUI across multiple modules\n– Led frontend development, shaped UI/UX decisions, and provided design feedback and technical guidance to teammates\n– Collaborated within a 7-person Agile team using GitHub, Jira, code reviews, and sprint-based development practices"
               }
             ],
             "markDefs": [],
