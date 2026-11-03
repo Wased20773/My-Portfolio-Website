@@ -1,169 +1,14 @@
 [
   {
     "cwd": "~/newsletter/",
-    "files": [
-      {
-        "_id": "fbf91c99-b5da-4121-a793-3ee8e317ab32",
-        "_type": "post",
-        "body": [
-          {
-            "_key": "941b4361e981",
-            "_type": "block",
-            "children": [
-              {
-                "_key": "df22c87290f1",
-                "_type": "span",
-                "marks": [],
-                "text": "Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text "
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
-          }
-        ],
-        "coverImage": null,
-        "name": "virtual-directory.md",
-        "publishedAt": "2026-10-15T23:52:00.000Z",
-        "shortDescription": "Created a virtual directory using a CMS.",
-        "title": "Virtual Directory"
-      }
-    ],
+    "files": [],
     "folders": [],
     "name": "newsletter",
     "parent": "~/"
   },
   {
     "cwd": "~/projects/personal/",
-    "files": [],
-    "folders": [],
-    "name": "personal",
-    "parent": "~/projects/"
-  },
-  {
-    "cwd": "~/",
     "files": [
-      {
-        "_id": "951d6de2-f540-454d-b1a3-7a17a1eeace9",
-        "_type": "aboutMe",
-        "body": null,
-        "gallery": null,
-        "name": "about-me.md",
-        "what": null,
-        "when": null,
-        "where": null,
-        "who": "test",
-        "why": null
-      },
-      {
-        "_id": "85fdf1d7-ccee-4eb5-a0a1-5ca38bb2c9fc",
-        "_type": "script",
-        "name": "contact.sh"
-      }
-    ],
-    "folders": [
-      {
-        "cwd": "~/newsletter/",
-        "name": "newsletter"
-      },
-      {
-        "cwd": "~/projects/",
-        "name": "projects"
-      }
-    ],
-    "name": "~",
-    "parent": null
-  },
-  {
-    "cwd": "~/projects/",
-    "files": [
-      {
-        "_id": "1192fd5b-2633-4475-acf0-8ca76cb0ca11",
-        "_type": "project",
-        "description": [
-          {
-            "_key": "bed4a0957599",
-            "_type": "block",
-            "children": [
-              {
-                "_key": "f4b4c0cb33bb",
-                "_type": "span",
-                "marks": [],
-                "text": "CHANGE ME\n\n– Developed core features for a syllabus builder web application used by instructors to create and manage course syllabi\n– Constructed dynamic tab-based workflows and content management features using HTMX partial updates and Django\ntemplates based on MVP requirements\n– Designed reusable responsive UI components with TailwindCSS and DaisyUI across multiple modules\n– Led frontend development, shaped UI/UX decisions, and provided design feedback and technical guidance to teammates\n– Collaborated within a 7-person Agile team using GitHub, Jira, code reviews, and sprint-based development practices"
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
-          }
-        ],
-        "endDate": "2026-06-01",
-        "isOngoing": false,
-        "name": "akkadian-capstone-project.md",
-        "startDate": "2026-01-01",
-        "tech": ["Django", "HTMX", "TailwindCSS", "DaisyUI", "PostgreSQL"],
-        "title": "Akkadian (Capstone Project)"
-      },
-      {
-        "_id": "d1d565b2-fff6-4192-ba68-0906ef69cc70",
-        "_type": "project",
-        "description": [
-          {
-            "_key": "f4eb85cbd8d9",
-            "_type": "block",
-            "children": [
-              {
-                "_key": "3d9ef28aef2b",
-                "_type": "span",
-                "marks": [],
-                "text": "CHANGE ME"
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
-          },
-          {
-            "_key": "cacd77bad7d6",
-            "_type": "block",
-            "children": [
-              {
-                "_key": "948acba703e7",
-                "_type": "span",
-                "marks": [],
-                "text": ""
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
-          },
-          {
-            "_key": "0e0455f74061",
-            "_type": "block",
-            "children": [
-              {
-                "_key": "04cc79afb5ed",
-                "_type": "span",
-                "marks": [],
-                "text": "– Developed a full-stack analytics dashboard integrating Steam and IGDB APIs to visualize the videogame industry market\n– Built interactive data visualizations, filtering systems, and responsive React components using ChartJS\n– Built ExpressJS backend endpoints to fetch and deliver videogame data to the React frontend\n– Deployed frontend and backend services using Vercel and Render with automated cloud-based hosting workflows\n– Implemented automated testing with Vitest to validate API response processing and application functionality\n"
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
-          }
-        ],
-        "endDate": "2025-12-01",
-        "isOngoing": false,
-        "name": "videogame-dashboard.md",
-        "startDate": "2025-11-01",
-        "tech": [
-          "Vite",
-          "NodeJS",
-          "ExpressJS",
-          "REST APIs",
-          "Vercel",
-          "Render",
-          "Vitest"
-        ],
-        "title": "Videogame Dashboard"
-      },
       {
         "_id": "df3409ae-75f0-49a4-89fb-cf06eb758517",
         "_type": "project",
@@ -253,10 +98,1249 @@
         "title": "Freelance Web Developer (Tacos El Guero)"
       }
     ],
+    "folders": [],
+    "name": "personal",
+    "parent": "~/projects/"
+  },
+  {
+    "cwd": "~/projects/school/",
+    "files": [
+      {
+        "_id": "1192fd5b-2633-4475-acf0-8ca76cb0ca11",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "bed4a0957599",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "f4b4c0cb33bb",
+                "_type": "span",
+                "marks": [],
+                "text": "CHANGE ME\n\n– Developed core features for a syllabus builder web application used by instructors to create and manage course syllabi\n– Constructed dynamic tab-based workflows and content management features using HTMX partial updates and Django\ntemplates based on MVP requirements\n– Designed reusable responsive UI components with TailwindCSS and DaisyUI across multiple modules\n– Led frontend development, shaped UI/UX decisions, and provided design feedback and technical guidance to teammates\n– Collaborated within a 7-person Agile team using GitHub, Jira, code reviews, and sprint-based development practices"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": "2026-06-01",
+        "isOngoing": false,
+        "name": "akkadian-capstone-project.md",
+        "startDate": "2026-01-01",
+        "tech": ["Django", "HTMX", "TailwindCSS", "DaisyUI", "PostgreSQL"],
+        "title": "Akkadian (Capstone Project)"
+      },
+      {
+        "_id": "a7b9343f-4e96-472e-b58f-b8edd66763f9",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "f23aec5ff8ca",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "424fdfbfb406",
+                "_type": "span",
+                "marks": [],
+                "text": "Food Facts Web App"
+              }
+            ],
+            "markDefs": [],
+            "style": "h1"
+          },
+          {
+            "_key": "090e058455b4",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "8326d68eb3ac",
+                "_type": "span",
+                "marks": [],
+                "text": "This is a VUI (Voice User Interface) that assist users with food products. The app works like a VA where there are three intents and 15 utterances in each one. Through voice commands, the application detects which intent it belongs to and outputs the desired outcome for that intent. This app is meant to assist users choosing the right, and healthier, food product, and it can also serve as a nutrition app where the user can ask to compare two products to see which one is healthier."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "85e4eb9a8910",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "dbf7bfcc8487",
+                "_type": "span",
+                "marks": [],
+                "text": "Technology Stack"
+              }
+            ],
+            "markDefs": [],
+            "style": "h2"
+          },
+          {
+            "_key": "557076e8d2b6",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "3ae6f00b3810",
+                "_type": "span",
+                "marks": [],
+                "text": "React + Vite"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "b6b762571631",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "e7728852cc83",
+                "_type": "span",
+                "marks": [],
+                "text": "TypeScript"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "2aa3ac5ad431",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "6250188aa71a",
+                "_type": "span",
+                "marks": [],
+                "text": "CSS3"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "9a450168162f",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "720061dad131",
+                "_type": "span",
+                "marks": [],
+                "text": "Web Speech API"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "c15cb449553d",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "8e454a4a6752",
+                "_type": "span",
+                "marks": [],
+                "text": "Axios"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "7857a087000d",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "46ad94a3ff99",
+                "_type": "span",
+                "marks": [],
+                "text": "Node.js"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "f6e9742d4d64",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "53ca3031f306",
+                "_type": "span",
+                "marks": [],
+                "text": "Express"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "16893ad9df2d",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "722219c1af50",
+                "_type": "span",
+                "marks": [],
+                "text": "Installs"
+              }
+            ],
+            "markDefs": [],
+            "style": "h2"
+          },
+          {
+            "_key": "625cb8771336",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b5495869d7fc",
+                "_type": "span",
+                "marks": [],
+                "text": "if this is your first time, run the following commands in your terminal window:"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "9ba1737b8e29",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "239a2ad0da5a",
+                "_type": "span",
+                "marks": [],
+                "text": "git clone git@github.com:Wased20773/FoodFacts.git\ncd .\\FoodFacts\\\nnpm install"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "71e56325814e",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b5b7cf99adfe",
+                "_type": "span",
+                "marks": [],
+                "text": "If you've already cloned the repository, run the following commands in root to get the latest updates and install dependencies:"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "1d24b7530dc7",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "221e39228ad9",
+                "_type": "span",
+                "marks": [],
+                "text": "git pull origin main\nnpm install"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "46a95dde61e9",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "3005fac1d655",
+                "_type": "span",
+                "marks": [],
+                "text": "How to Run"
+              }
+            ],
+            "markDefs": [],
+            "style": "h2"
+          },
+          {
+            "_key": "b898518d6f0c",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "9bb079005f1b",
+                "_type": "span",
+                "marks": [],
+                "text": "Before running any commands, make sure you are in the root folder; FoodFacts\\"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "af6b72d1c3cf",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "4f38286bb6ea",
+                "_type": "span",
+                "marks": [],
+                "text": "There are two modes of the application:"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "2562948e70c8",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "58a09b92335d",
+                "_type": "span",
+                "marks": [],
+                "text": "Live API Mode"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "f2703c1993d8",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b7a2a45d1208",
+                "_type": "span",
+                "marks": [],
+                "text": "This uses the Open Food Facts API"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "fce9dc885dfd",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "d762047d52ff",
+                "_type": "span",
+                "marks": [],
+                "text": "Some things to consider when running this mode:"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "655f2b5db25f",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "bbe9cd72ba96",
+                "_type": "span",
+                "marks": [],
+                "text": "The server to Open Food Facts may not become available to those with lower priority"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "6404705ce032",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "2793b5862064",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "WARNING:"
+              },
+              {
+                "_key": "37cd6765cb95",
+                "_type": "span",
+                "marks": [],
+                "text": " 15 req/min/IP for GET: IP ban"
+              }
+            ],
+            "level": 4,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "11410bd5ea05",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "ceb263db90e6",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "WARNING:"
+              },
+              {
+                "_key": "a5936eeb115d",
+                "_type": "span",
+                "marks": [],
+                "text": " 10 req/min/IP for POST: IP ban"
+              }
+            ],
+            "level": 4,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "22fb6a2f372e",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "af1a6cfce803",
+                "_type": "span",
+                "marks": [],
+                "text": "Application does not use POST"
+              }
+            ],
+            "level": 5,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "ce14cde0914e",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "e6e8a32ddc7f",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "Run this mode with the following command:"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "fd38aa154ffd",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "1e8beb2df7be",
+                "_type": "span",
+                "marks": [],
+                "text": "npm run dev"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "2d92bdf29a43",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "4b8cc11ab9f0",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "You will also need to run the backend server, run the following command in a separate terminal window:"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "5328313aedd3",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "2dc8890f5e41",
+                "_type": "span",
+                "marks": [],
+                "text": "npm run server"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "62aa876b8c75",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "4ea1e34e50ab",
+                "_type": "span",
+                "marks": [],
+                "text": "Mock Data Mode"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "fdf2a78ead82",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "41fec16aa08e",
+                "_type": "span",
+                "marks": [],
+                "text": "Uses a mock database with 12 row entires"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "8b11578bfe26",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "f2754ec8ccc2",
+                "_type": "span",
+                "marks": [],
+                "text": "Must use exact product_name to \"search\" for the products"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "efe0f9019dc1",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "889a4e9cb674",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "Run this mode with the following command:"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "eaa2f0966aff",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "24309ab3efb3",
+                "_type": "span",
+                "marks": [],
+                "text": "npm run dev:mock"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "1ed82cf6d640",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "4fb7f68c9d03",
+                "_type": "span",
+                "marks": [],
+                "text": "Below are all the exact product names to use for dev:mock"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "0d9e0c6bea14",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "a917562e4d96",
+                "_type": "span",
+                "marks": [],
+                "text": "Nutella"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "c79e6a9a7799",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "ee3d1c8c0768",
+                "_type": "span",
+                "marks": [],
+                "text": "Apple Slices"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "52bfde673b57",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "15494950e457",
+                "_type": "span",
+                "marks": [],
+                "text": "Peanut Butter"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "40912e1701a0",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "98f8ef977427",
+                "_type": "span",
+                "marks": [],
+                "text": "Oreo Cookies"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "d366a98e3112",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "f0561dc5a8d4",
+                "_type": "span",
+                "marks": [],
+                "text": "Coca-Cola"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "f66fc788505e",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "7b5af9365414",
+                "_type": "span",
+                "marks": [],
+                "text": "Banana"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "cb9b83d6fbfc",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "e4d2cd9d4ed0",
+                "_type": "span",
+                "marks": [],
+                "text": "Greek Yogurt"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "8c298d1f8a25",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "66e7d4988b29",
+                "_type": "span",
+                "marks": [],
+                "text": "Protein Bar"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "a15f91b24615",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "a3957bf8fac6",
+                "_type": "span",
+                "marks": [],
+                "text": "Lay's Potato Chips"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "a147ac2ea8e6",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "da58ec7cb38c",
+                "_type": "span",
+                "marks": [],
+                "text": "Whole Ultra Filtered Milk"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "c06fc6dda898",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "ae7f07f9ef78",
+                "_type": "span",
+                "marks": [],
+                "text": "Cheerios"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "80a3093558b3",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "32a099e61ab5",
+                "_type": "span",
+                "marks": [],
+                "text": "Boneless Skinless Chicken Breast"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "68cb66486f0a",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b932c8b850cf",
+                "_type": "span",
+                "marks": [],
+                "text": "You can find the file contents inside of:"
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "8095b32b8d87",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "5a5abfd5749d",
+                "_type": "span",
+                "marks": ["94f851cb2663"],
+                "text": "src/data/mockProducts.ts"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [
+              {
+                "_key": "94f851cb2663",
+                "_type": "link",
+                "href": "https://github.com/Wased20773/FoodFacts/blob/main/src/data/mockProducts.ts"
+              }
+            ],
+            "style": "normal"
+          },
+          {
+            "_key": "c55cd85cf60b",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "bc8ffd3f18a6",
+                "_type": "span",
+                "marks": ["0161d528acd1"],
+                "text": "src/data/mockDatabase.ts"
+              }
+            ],
+            "level": 3,
+            "listItem": "bullet",
+            "markDefs": [
+              {
+                "_key": "0161d528acd1",
+                "_type": "link",
+                "href": "https://github.com/Wased20773/FoodFacts/blob/main/src/data/mockDatabase.ts"
+              }
+            ],
+            "style": "normal"
+          },
+          {
+            "_key": "57e54caafeeb",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "0b76c590a606",
+                "_type": "span",
+                "marks": [],
+                "text": "Voice Commands"
+              }
+            ],
+            "markDefs": [],
+            "style": "h2"
+          },
+          {
+            "_key": "8c1baf4169e8",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "277f5d528946",
+                "_type": "span",
+                "marks": [],
+                "text": "To view the full list of utterances, go to "
+              },
+              {
+                "_key": "2b0dfce05e46",
+                "_type": "span",
+                "marks": ["f1a28ad68db3"],
+                "text": "src/utils/utterances.ts"
+              }
+            ],
+            "markDefs": [
+              {
+                "_key": "f1a28ad68db3",
+                "_type": "link",
+                "href": "https://github.com/Wased20773/FoodFacts/blob/main/src/utils/utterances.ts"
+              }
+            ],
+            "style": "normal"
+          },
+          {
+            "_key": "e7dfefe7f48b",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "255a2f955976",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "searchFoodUtterances"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "7ffeed594b8d",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "0b222e0cfaeb",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"search for <productName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "fdd7a2409c12",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "6d09526751fa",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"look for <productName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "2939d1a41595",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "d62f48e1bf1a",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"get information for <productName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "ffc58ec76858",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "030677cf1ed1",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"give me <productName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "bfefe0c2612c",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "c0decea6eee3",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "productNutritionUtterances"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "4e993386297d",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "96c3bbf52177",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"how much <nutrient> does <productName> have\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "506aab3ca127",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "e3ff4e63b935",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"what is the <nutrient> in <productName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "2125ea242bec",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "43562a2fb89b",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"tell me how much <nutrient> is in <productName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "94009d5eed3a",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "3874b8533764",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"read the <nutrient> in <productName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "d82d6befa521",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "caa3da30d647",
+                "_type": "span",
+                "marks": ["strong"],
+                "text": "compareProductUtterances"
+              }
+            ],
+            "level": 1,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "6dbb4c56deb1",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "8fbbe0ac3e67",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"compare <productName> with <secondProductName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "308534ba9503",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "6d27a59df594",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"what is the difference between <productName> and <secondProductName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "de81d15486c8",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "1f7f6ab7fb91",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"show me a comparison of <productName> and <secondProductName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "7ec7b383ab22",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "19467084f6d2",
+                "_type": "span",
+                "marks": ["em"],
+                "text": "\"compare nutrition of <productName> and <secondProductName>\""
+              }
+            ],
+            "level": 2,
+            "listItem": "bullet",
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": "2026-06-08",
+        "isOngoing": false,
+        "name": "foodfacts.md",
+        "startDate": "2026-06-02",
+        "tech": [
+          "React",
+          "Vite",
+          "TypeScript",
+          "CSS3",
+          "Web Speech API",
+          "Axios",
+          "Node.js",
+          "Express"
+        ],
+        "title": "FoodFacts"
+      },
+      {
+        "_id": "d1d565b2-fff6-4192-ba68-0906ef69cc70",
+        "_type": "project",
+        "description": [
+          {
+            "_key": "f4eb85cbd8d9",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "3d9ef28aef2b",
+                "_type": "span",
+                "marks": [],
+                "text": "CHANGE ME"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "cacd77bad7d6",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "948acba703e7",
+                "_type": "span",
+                "marks": [],
+                "text": ""
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "0e0455f74061",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "04cc79afb5ed",
+                "_type": "span",
+                "marks": [],
+                "text": "– Developed a full-stack analytics dashboard integrating Steam and IGDB APIs to visualize the videogame industry market\n– Built interactive data visualizations, filtering systems, and responsive React components using ChartJS\n– Built ExpressJS backend endpoints to fetch and deliver videogame data to the React frontend\n– Deployed frontend and backend services using Vercel and Render with automated cloud-based hosting workflows\n– Implemented automated testing with Vitest to validate API response processing and application functionality\n"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "endDate": "2025-12-01",
+        "isOngoing": false,
+        "name": "videogame-dashboard.md",
+        "startDate": "2025-11-01",
+        "tech": [
+          "Vite",
+          "NodeJS",
+          "ExpressJS",
+          "REST APIs",
+          "Vercel",
+          "Render",
+          "Vitest"
+        ],
+        "title": "Videogame Dashboard"
+      }
+    ],
+    "folders": [],
+    "name": "school",
+    "parent": "~/projects/"
+  },
+  {
+    "cwd": "~/",
+    "files": [
+      {
+        "_id": "951d6de2-f540-454d-b1a3-7a17a1eeace9",
+        "_type": "aboutMe",
+        "body": null,
+        "gallery": null,
+        "name": "about-me.md",
+        "what": null,
+        "when": null,
+        "where": null,
+        "who": "test",
+        "why": null
+      }
+    ],
+    "folders": [
+      {
+        "cwd": "~/newsletter/",
+        "name": "newsletter"
+      },
+      {
+        "cwd": "~/projects/",
+        "name": "projects"
+      }
+    ],
+    "name": "~",
+    "parent": null
+  },
+  {
+    "cwd": "~/projects/",
+    "files": [],
     "folders": [
       {
         "cwd": "~/projects/personal/",
         "name": "personal"
+      },
+      {
+        "cwd": "~/projects/school/",
+        "name": "school"
       }
     ],
     "name": "projects",

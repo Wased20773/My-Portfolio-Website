@@ -27,13 +27,22 @@ parent->parent->name == "~" =>
 "~/" + parent->name + "/" + name + "/"
 ),
 
-"files": select(
+"files": \*[
+(
+\_type == "aboutMe" &&
+^.name == "~"
+)
+||
+(
+\_type in ["project", "post", "script"] &&
+parent.\_ref == ^.\_id
+)
+] {
+\_id,
+\_type,
 
-    // $HOME
-    name == "~" => [
-      ...*[_type == "aboutMe"] {
-        _id,
-        _type,
+    ...select(
+      _type == "aboutMe" => {
         body,
         gallery,
         name,
@@ -44,31 +53,7 @@ parent->parent->name == "~" =>
         why
       },
 
-      ...*[_type == "script"] {
-        _id,
-        _type,
-        name
-      }
-    ],
-
-    // ~/newsletter/
-    name == "newsletter" =>
-      *[_type == "post"] {
-        _id,
-        _type,
-        body,
-        coverImage,
-        "name": slug.current + "." + extension,
-        publishedAt,
-        shortDescription,
-        title
-      },
-
-    // ~/projects/
-    name == "projects" =>
-      *[_type == "project"] {
-        _id,
-        _type,
+      _type == "project" => {
         description,
         endDate,
         isOngoing,
@@ -78,14 +63,25 @@ parent->parent->name == "~" =>
         title
       },
 
-    // every other folder
-    []
+      _type == "post" => {
+        body,
+        coverImage,
+        "name": slug.current + "." + extension,
+        publishedAt,
+        shortDescription,
+        title
+      },
 
-),
+      _type == "script" => {
+        name
+      }
+    )
+
+},
 
 "folders": \*[
 _type == "directory" &&
-parent->name == ^.name
+parent._ref == ^._id
 ] {
 "cwd": select(
 name == "~" => "~/",
