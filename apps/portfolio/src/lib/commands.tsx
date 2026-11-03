@@ -79,6 +79,18 @@ export const commands = {
       "When any command is performed, it automatically performs a `clear`",
     info: [{ usage: "clear", description: "Empty the output screen" }],
   },
+  "./": {
+    usage: "./[script]",
+    description: "Run a script",
+    details:
+      "Runs a `.sh` script, which asks you questions one at a time right inside the " +
+      "terminal. Type your answer and press Enter to move on to the next one. Scripts " +
+      "show up in `ls` like any other file. Type `exit` at any time to cancel. ",
+    info: [
+      { usage: "./contact.sh", description: "Send me a message" },
+      { usage: "exit", description: "Cancel the running script" },
+    ],
+  },
   // theme: {
   //   usage: "theme [name]",
   //   description: "Change the site's theme",

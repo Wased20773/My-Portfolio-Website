@@ -68,6 +68,52 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'links',
+      title: 'Links',
+      description: 'Shown separately from the description, e.g. as badges.',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'projectLink',
+          fields: [
+            defineField({
+              name: 'kind',
+              title: 'Kind',
+              type: 'string',
+              initialValue: 'github',
+              options: {
+                list: [
+                  {title: 'GitHub repo', value: 'github'},
+                  {title: 'Live site', value: 'live'},
+                  {title: 'Other', value: 'other'},
+                ],
+                layout: 'radio',
+                direction: 'horizontal',
+              },
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              validation: (rule) => rule.required().uri({scheme: ['https']}),
+            }),
+            defineField({
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              description: 'Optional, e.g. "Frontend repo" when there is more than one.',
+            }),
+          ],
+          preview: {
+            select: {kind: 'kind', url: 'url', label: 'label'},
+            prepare: ({kind, url, label}) => ({title: label || kind, subtitle: url}),
+          },
+        },
+      ],
+    }),
+    defineField({
       name: 'description',
       title: 'description',
       type: 'blockContent',

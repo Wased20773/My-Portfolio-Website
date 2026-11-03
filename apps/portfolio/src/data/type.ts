@@ -25,6 +25,16 @@ export type Block = {
   level?: number;
 };
 
+export type ImageBlock = {
+  _key: string;
+  _type: "image";
+  asset: { _ref: string; _type: "reference" };
+  alt?: string;
+};
+
+// Anything that can appear in a body/description
+export type ContentBlock = Block | ImageBlock;
+
 export type Output =
   | { kind: "error"; message: string }
   | { kind: "ls"; dir: Directory }
@@ -43,7 +53,7 @@ export type AboutMe = {
   when: string | null;
   where: string | null;
   why: string | null;
-  body: Block[] | null;
+  body: ContentBlock[] | null;
 };
 
 export type Project = {
@@ -55,7 +65,14 @@ export type Project = {
   startDate: string | null;
   endDate: string | null;
   tech: string[] | null;
-  description: Block[] | null;
+  links: Link[];
+  description: ContentBlock[] | null;
+};
+
+export type Link = {
+  kind: "github" | "live" | "other";
+  label: string | null;
+  url: string;
 };
 
 export type Post = {
@@ -65,7 +82,7 @@ export type Post = {
   title: string;
   publishedAt: string | null;
   shortDescription: string | null;
-  body: Block[] | null;
+  body: ContentBlock[] | null;
 };
 
 export type ScriptFile = {

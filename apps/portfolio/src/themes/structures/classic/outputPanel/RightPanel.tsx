@@ -187,7 +187,7 @@ function FileView({ file }: { file: FileNode }) {
           <h2 className="text-ink">{file.title}</h2>
           <p className="text-muted">{projectDates(file)}</p>
           {file.tech && (
-            <ul className="flex flex-wrap gap-2 mb-5" aria-label="Tech stack">
+            <ul className="flex flex-wrap gap-2 mb-2" aria-label="Tech stack">
               {file.tech.map((t) => (
                 <li key={t} className="bg-pill text-pill-ink rounded-full px-3">
                   {t}
@@ -195,6 +195,27 @@ function FileView({ file }: { file: FileNode }) {
               ))}
             </ul>
           )}
+          <ul className="mb-5" aria-label="Project links">
+            {file.links ? (
+              file.links.map((l, idx) => (
+                <li key={idx}>
+                  <a
+                    className="text-link"
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="text-ink font-semibold">{l.kind}: </span>
+                    {l.label ?? l.url}
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li className="font-semibold text-ink">
+                This project has no links
+              </li>
+            )}
+          </ul>
           <RichText blocks={file.description} />
         </article>
       );

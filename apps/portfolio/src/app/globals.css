@@ -182,6 +182,7 @@
   /* File content (cat) */
   --ink: oklch(26.8% 0.007 34.298); /* stone-800: headings + body */
   --muted: oklch(55.3% 0.013 58.071); /* stone-500: dates */
+  --link: oklch(42.4% 0.199 265.638); /* blue-800 */
 
   /* Status */
   --danger: oklch(50.5% 0.213 27.518); /* red-700: error messages */
@@ -246,6 +247,7 @@
 
   --color-ink: var(--ink);
   --color-muted: var(--muted);
+  --color-link: var(--link);
   --color-danger: var(--danger);
 
   --shadow-panel: var(--panel-shadow);
