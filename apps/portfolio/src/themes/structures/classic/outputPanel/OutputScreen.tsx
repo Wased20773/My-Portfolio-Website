@@ -38,7 +38,7 @@ function OutputResults({ output, navOpen = true }: OutputScreenResults) {
         {/* Left Panel (folders) */}
         {navOpen === true && (
           <nav
-            className="min-h-[50px] md:min-h-[100px] bg-panel rounded-md shadow-panel p-3"
+            className="min-h-[50px] md:min-h-[100px] bg-panel rounded-md p-3"
             aria-label="Directory"
           >
             {/* Insert dynamicly generated navigation based on current directory selection */}

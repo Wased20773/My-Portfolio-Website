@@ -41,6 +41,24 @@
   }
 }
 
+@keyframes sway {
+  from {
+    rotate: -5deg;
+  }
+  to {
+    rotate: 5deg;
+  }
+}
+
+@keyframes breathe {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.025;
+  }
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -128,8 +146,8 @@
 :root,
 [data-theme="default"] {
   /* Page */
-  --background: #37413b;
-  --foreground: #f5f5f5;
+  --background: oklch(12.9% 0.042 264.695); /* slate-950 */
+  --foreground: oklch(86.9% 0.022 252.894); /* slate-300 */
 
   /* Headers */
   --header: var(--foreground);
@@ -150,23 +168,31 @@
   --accent: oklch(63.7% 0.237 25.331); /* red-500: email icon + @ */
   --highlight: rgba(240, 176, 0, 0.75); /* yellow-600 + opacticy 75 */
 
+  /* Monitor (the box around the terminal + output) */
+  --monitor: oklch(39.8% 0.07 227.392); /* cyan-900 */
+  --monitor-border: oklch(71.5% 0.143 215.221); /* cyan-500 */
+  --monitor-glow:
+    0 0 12px 0 rgb(56 189 248 / 0.35), 0 0 60px 8px rgb(56 189 248 / 0.15); /* sky-400: halo at the edge + soft light spilling out */
+
   /* Output screen */
-  --surface: oklch(86.9% 0.005 56.366); /* stone-300: outer output box */
-  --panel: oklch(55.3% 0.013 58.071); /* stone-500: nav panel */
-  --panel-shadow: -5px 9px 5px 0 rgb(0 0 0 / 0.25);
-  --divider: oklch(70.9% 0.01 56.259); /* stone-400: dashed divider */
+  /* --surface: rgba(215, 211, 209, 0.5); stone-300: outer output box */
+
+  --panel: oklch(52% 0.105 223.128); /* cyan-700: nav panel */
+
+  /* --panel-shadow: -5px 9px 5px 0 rgb(0 0 0 / 0.25); */
+  --divider: oklch(71.5% 0.143 215.221); /* cyan-900: dashed divider */
 
   /* code snipits */
   --code: oklch(44.4% 0.011 73.639); /* stone-700: inline <code> background */
   --code-ink: oklch(92.3% 0.003 48.717); /* amber-300: inline <code> text */
 
   /* Folder chips (ls, left panel) */
-  --chip: oklch(92.3% 0.003 48.717); /* stone-200 */
-  --chip-ink: oklch(27.8% 0.033 256.848); /* gray-800 */
+  --chip: oklch(30.2% 0.056 229.695); /* cyan-950 */
+  --chip-ink: oklch(95.6% 0.045 203.388); /* cyan-100 */
 
   /* Light cards (aboutMe / project in ls) */
-  --card: oklch(97% 0.001 106.424); /* stone-100 */
-  --card-ink: oklch(27.8% 0.033 256.848); /* gray-800 */
+  --card: oklch(95.6% 0.045 203.388); /* cyan-100 */
+  --card-ink: oklch(30.2% 0.056 229.695); /* cyan-950 */
   --card-muted: oklch(44.4% 0.011 73.639); /* stone-600: project dates */
 
   /* Dark cards (post in ls) */
@@ -195,6 +221,9 @@
     morph-tr 5.7s ease-in-out infinite alternate,
     morph-br 6.9s ease-in-out infinite alternate,
     morph-bl 8.3s ease-in-out infinite alternate; /* uneven durations = never-repeating flow */
+  --sway:
+    sway 3s ease-in-out infinite alternate,
+    breathe 1s ease-in-out infinite alternate;
 
   /* Left Panel */
   --reveal: reveal 450ms ease-out;
@@ -223,6 +252,9 @@
   --color-accent: var(--accent);
   --color-highlight: var(--highlight);
 
+  --color-monitor: var(--monitor);
+  --color-monitor-border: var(--monitor-border);
+
   --color-surface: var(--surface);
   --color-panel: var(--panel);
   --color-divider: var(--divider);
@@ -250,7 +282,8 @@
   --color-link: var(--link);
   --color-danger: var(--danger);
 
-  --shadow-panel: var(--panel-shadow);
+  /* --shadow-panel: var(--panel-shadow); */
+  --shadow-monitor-glow: var(--monitor-glow);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -258,6 +291,7 @@
   /* animation */
   --animate-wipe: var(--wipe);
   --animate-morph: var(--morph);
+  --animate-sway: var(--sway);
   --animate-reveal: var(--reveal);
   --animate-slide-in-left: var(--slide-in-left);
   --animate-fade-in-content: var(--fade-in-content);
@@ -280,5 +314,9 @@ body {
 
   code {
     @apply bg-code text-code-ink rounded px-1;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 }

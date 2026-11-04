@@ -8,7 +8,7 @@ export default function ClassicLayout({ terminal }: LayoutProps) {
     <div>
       <Header />
 
-      <main className="max-w-[1200px] mx-auto">
+      <main className="max-w-[1200px] mx-auto rounded-lg py-5 m-1 border-[0.15rem] border-monitor-border bg-monitor shadow-monitor-glow">
         <Terminal
           run={terminal.run}
           prompt={terminal.prompt}

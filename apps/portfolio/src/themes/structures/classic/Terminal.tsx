@@ -22,14 +22,14 @@ export default function Terminal({ run, prompt, history }: TerminalProps) {
   }
 
   return (
-    <div className="cursor-text m-1">
+    <div className="cursor-text mx-5 my-2">
       <p className="opacity-75">
         Terminal: Type &quot;help&quot; to view available commands.
       </p>
       <div
         onClick={() => inputRef.current?.focus()}
         onKeyDown={handleKeyDown}
-        className="cursor-text bg-terminal p-1 font-mono"
+        className="rounded-sm cursor-text bg-terminal px-2 py-1 font-mono"
       >
         {/* Script lines; role="log" lets screen readers announce each new one */}
         <div role="log">
