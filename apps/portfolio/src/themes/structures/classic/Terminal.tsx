@@ -34,13 +34,16 @@ export default function Terminal({ run, prompt, history }: TerminalProps) {
         {/* Script lines; role="log" lets screen readers announce each new one */}
         <div role="log">
           {history.map((line, i) => (
-            <p key={i} className="whitespace-pre-wrap break-all">
+            <p
+              key={i}
+              className="whitespace-pre-wrap break-all text-terminal-ink"
+            >
               {line}
             </p>
           ))}
         </div>
 
-        <div>
+        <div className="text-terminal-ink">
           <span>{prompt}</span>
           <span
             ref={inputRef}

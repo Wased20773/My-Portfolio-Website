@@ -41,6 +41,17 @@
   }
 }
 
+@keyframes twinkle {
+  from {
+    opacity: 0.2;
+    scale: 0.6;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
 @keyframes sway {
   from {
     rotate: -5deg;
@@ -164,7 +175,12 @@
 
   /* Chrome */
   --topbar: oklch(14.7% 0.004 49.25); /* stone-950: header social bar */
+  --topbar-ink: oklch(100% 0 0); /* white: GitHub + email text */
+  --switch-track: oklch(37.4% 0.01 67.558); /* stone-700: mobile mode switch */
+  --switch-track-border: oklch(55.3% 0.013 58.071); /* stone-500 */
+  --switch-knob: oklch(70.4% 0.04 256.788); /* slate-400: the "moon" knob */
   --terminal: oklch(14.7% 0.004 49.25); /* stone-950: terminal box */
+  --terminal-ink: oklch(97% 0.001 106.424);
   --accent: oklch(63.7% 0.237 25.331); /* red-500: email icon + @ */
   --highlight: rgba(240, 176, 0, 0.75); /* yellow-600 + opacticy 75 */
 
@@ -183,20 +199,20 @@
   --divider: oklch(71.5% 0.143 215.221); /* cyan-900: dashed divider */
 
   /* code snipits */
-  --code: oklch(44.4% 0.011 73.639); /* stone-700: inline <code> background */
-  --code-ink: oklch(92.3% 0.003 48.717); /* amber-300: inline <code> text */
+  --code: oklch(27.9% 0.041 260.031); /* slate-800: inline <code> background */
+  --code-ink: oklch(92.9% 0.013 255.508); /* slate-200: inline <code> text */
 
   /* Folder chips (ls, left panel) */
   --chip: oklch(30.2% 0.056 229.695); /* cyan-950 */
   --chip-ink: oklch(95.6% 0.045 203.388); /* cyan-100 */
 
   /* Light cards (aboutMe / project in ls) */
-  --card: oklch(95.6% 0.045 203.388); /* cyan-100 */
-  --card-ink: oklch(30.2% 0.056 229.695); /* cyan-950 */
-  --card-muted: oklch(44.4% 0.011 73.639); /* stone-600: project dates */
+  --card: oklch(60.9% 0.126 221.723); /* cyan-700 */
+  --card-ink: oklch(20.8% 0.042 265.755); /* slate-900 */
+  --card-muted: oklch(44.6% 0.043 257.281); /* slate-600: project dates */
 
   /* Dark cards (post in ls) */
-  --card-alt: oklch(26.8% 0.007 34.298); /* stone-800 */
+  --card-alt: oklch(27.9% 0.041 260.031); /* slate-800 */
   --card-alt-ink: oklch(92.3% 0.003 48.717); /* stone-200: title */
   --card-alt-faint: oklch(44.4% 0.011 73.639); /* stone-600: date */
   --card-alt-muted: oklch(70.9% 0.01 56.259); /* stone-400: description */
@@ -206,9 +222,9 @@
   --pill-ink: oklch(86.9% 0.005 56.366); /* stone-300 */
 
   /* File content (cat) */
-  --ink: oklch(26.8% 0.007 34.298); /* stone-800: headings + body */
-  --muted: oklch(55.3% 0.013 58.071); /* stone-500: dates */
-  --link: oklch(42.4% 0.199 265.638); /* blue-800 */
+  --ink: oklch(86.9% 0.022 252.894); /* slate-300: headings + body */
+  --muted: oklch(55.4% 0.046 257.417); /* slate-500: dates */
+  --link: oklch(54.1% 0.281 293.009); /* violet-600 */
 
   /* Status */
   --danger: oklch(50.5% 0.213 27.518); /* red-700: error messages */
@@ -224,6 +240,12 @@
   --sway:
     sway 3s ease-in-out infinite alternate,
     breathe 1s ease-in-out infinite alternate;
+  --star: oklch(95% 0.03 230); /* faint icy blue-white */
+  /* drop-shadow follows the PNG's shape (box-shadow would glow as a square) */
+  --moon-glow: drop-shadow(0 0 6px rgb(186 230 253 / 0.6))
+    drop-shadow(0 0 18px rgb(125 211 252 / 0.35)); /* sky-200 + sky-300: cool moonlight */
+  --sun-glow: drop-shadow(0 0 6px rgb(253 224 71 / 0.7))
+    drop-shadow(0 0 22px rgb(251 146 60 / 0.4)); /* yellow-300 + orange-400: warm sunlight */
 
   /* Left Panel */
   --reveal: reveal 450ms ease-out;
@@ -234,6 +256,67 @@
 
   /* cat */
   --fade-in-content: fade-in 300ms ease-in;
+}
+
+/* ---------- Theme: default, light mode ----------
+   Only colors change; everything else (shapes, animations) is
+   inherited from the block above. */
+[data-theme="default"][data-mode="light"] {
+  /* Page */
+  --background: oklch(74.6% 0.16 232.661); /* sky-400 */
+  --foreground: oklch(27.9% 0.041 260.031); /* slate-800 */
+
+  /* Headers (--header / --header-muted follow --foreground) */
+  --hero-shape-border-color: oklch(95.1% 0.026 236.824); /* sky-100 */
+
+  /* Chrome */
+  --topbar: oklch(44.3% 0.11 240.79); /* sky-800 */
+  --topbar-ink: oklch(90.1% 0.058 230.902); /* sky-200 */
+  --switch-track: oklch(86.9% 0.022 252.894); /* slate-300 */
+  --switch-track-border: oklch(70.4% 0.04 256.788); /* slate-400 */
+  --switch-knob: oklch(85.2% 0.199 91.936); /* yellow-400: the "sun" knob */
+  --highlight: oklch(87.9% 0.169 91.605); /* amber-300 */
+
+  /* Monitor */
+  --monitor: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  --monitor-border: oklch(43.2% 0.095 166.913); /* emerald-800 */
+  --monitor-glow:
+    0 0 12px 0 rgb(16 185 129 / 0.45), 0 0 60px 8px rgb(16 185 129 / 0.2); /* emerald-500: stronger than night, since glow fades into a light sky */
+
+  /* Output screen */
+  --panel: oklch(43.8% 0.017 39.3); /* taupe-600 */
+  --divider: oklch(59.6% 0.145 163.225); /* emerald-600 */
+
+  /* code snipits */
+  --code: oklch(27.9% 0.041 260.031); /* slate-800 */
+  --code-ink: oklch(92.9% 0.013 255.508); /* slate-200 */
+
+  /* Folder chips */
+  --chip: oklch(70.9% 0.01 56.259); /* stone-400 */
+  --chip-ink: oklch(97% 0.001 106.424); /* stone-100 */
+
+  /* Light cards */
+  --card: oklch(96.2% 0.044 156.743); /* green-100 */
+  --card-ink: oklch(43.2% 0.095 166.913); /* emerald-800 */
+  --card-muted: oklch(59.6% 0.145 163.225); /* slate-500 */
+
+  /* Dark cards (stay dark for contrast against the light page) */
+  --card-alt: oklch(37.8% 0.077 168.94); /* emerald-900 */
+  --card-alt-ink: oklch(97% 0.001 106.424); /* slate-100 */
+  --card-alt-faint: oklch(70.4% 0.04 256.788); /* slate-400 */
+  --card-alt-muted: oklch(86.9% 0.022 252.894); /* slate-300 */
+
+  /* Tech pills */
+  --pill: oklch(37.2% 0.044 257.287); /* gray-700 */
+  --pill-ink: oklch(96.7% 0.003 264.542); /* gray-100 */
+
+  /* File content (cat) */
+  --ink: oklch(27.9% 0.041 260.031); /* slate-800 */
+  --muted: oklch(55.4% 0.046 257.417); /* slate-500 */
+  --link: oklch(48.8% 0.243 264.376); /* blue-700 */
+
+  /* Status */
+  --danger: oklch(50.5% 0.213 27.518); /* red-700 */
 }
 
 /* Maps tokens to utilities (bg-panel, text-ink, border-divider, shadow-panel, ...).
@@ -248,7 +331,12 @@
   --color-hero-shape-border-color: var(--hero-shape-border-color);
 
   --color-topbar: var(--topbar);
+  --color-topbar-ink: var(--topbar-ink);
+  --color-switch-track: var(--switch-track);
+  --color-switch-track-border: var(--switch-track-border);
+  --color-switch-knob: var(--switch-knob);
   --color-terminal: var(--terminal);
+  --color-terminal-ink: var(--terminal-ink);
   --color-accent: var(--accent);
   --color-highlight: var(--highlight);
 
@@ -292,6 +380,9 @@
   --animate-wipe: var(--wipe);
   --animate-morph: var(--morph);
   --animate-sway: var(--sway);
+  --color-star: var(--star);
+  --animate-twinkle: twinkle var(--dur, 2s) ease-in-out var(--delay, 0s)
+    infinite alternate;
   --animate-reveal: var(--reveal);
   --animate-slide-in-left: var(--slide-in-left);
   --animate-fade-in-content: var(--fade-in-content);
@@ -318,5 +409,202 @@ body {
 
   button:hover {
     cursor: pointer;
+  }
+}
+
+/* Mode switch fade: registering each color token as a <color> lets the
+   browser animate it, so day <-> night fades instead of snapping.
+   Every token needs BOTH a block here and a spot in the transition list below. */
+@property --background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --hero-shape-border-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --topbar {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --topbar-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --switch-track {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --switch-track-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --switch-knob {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --highlight {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --monitor {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --monitor-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --panel {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --divider {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --code {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --code-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --chip {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --chip-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card-alt {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card-alt-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card-alt-faint {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card-alt-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --pill {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --pill-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --link {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --danger {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    transition-property:
+      --background, --foreground, --hero-shape-border-color, --topbar,
+      --topbar-ink, --switch-track, --switch-track-border, --switch-knob,
+      --highlight, --monitor, --monitor-border, --panel, --divider, --code,
+      --code-ink, --chip, --chip-ink, --card, --card-ink, --card-muted,
+      --card-alt, --card-alt-ink, --card-alt-faint, --card-alt-muted, --pill,
+      --pill-ink, --ink, --muted, --link, --danger;
+    transition-duration: 700ms; /* matches the sun/moon orbit */
+    transition-timing-function: ease-in-out;
   }
 }
