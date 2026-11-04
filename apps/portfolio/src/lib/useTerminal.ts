@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Output } from "@/data/type";
-import { getDirectory, getFile, resolvePath } from "./fs";
-import { isCommand } from "./commands";
+import { completePath, getDirectory, getFile, resolvePath } from "./fs";
+import { commands, isCommand } from "./commands";
 import { useTheme } from "@/themes/ThemeProvider";
 // import { isThemeName } from "@/themes/themes";
 import { isScript, ScriptName, scripts } from "./scripts";
-import { isModeName } from "@/themes/themes";
+import { isModeName, modes } from "@/themes/themes";
 
 export function useTerminal() {
   const [cwd, setCWD] = useState<string>("~/");
@@ -21,8 +21,60 @@ export function useTerminal() {
   } | null>(null);
   const [history, setHistory] = useState<string[]>([]);
 
+  const [pastCommands, setPastCommands] = useState<string[]>([]);
+  const [browsing, setBrowsing] = useState<number | null>(null); // null = not browsing, on a fresh line
+
   function addLine(line: string) {
     setHistory((prev) => [...prev, line]);
+  }
+
+  // Longest start shared by every match: ["projects/", "project-x.md"] → "project"
+  function commonPrefix(words: string[]) {
+    return words.reduce((a, b) => {
+      let i = 0;
+      while (i < a.length && a[i] === b[i]) i++;
+      return a.slice(0, i);
+    });
+  }
+
+  function complete(input: string) {
+    if (running) return input; // no completing a script's answers
+
+    const words = input.split(" ");
+    const word = words.pop() ?? ""; // the word being completed
+    const command = words[0]; // undefined while typing the first word
+
+    let matches: string[];
+    if (!command) {
+      matches = word.startsWith("./")
+        ? completePath(word.slice(2), cwd)
+            .filter(isScript)
+            .map((n) => `./${n}`)
+        : Object.keys(commands).filter((c) => c !== "./" && c.startsWith(word));
+    } else if (command === "help") {
+      matches = Object.keys(commands).filter((c) => c.startsWith(word));
+    } else if (command === "mode") {
+      matches = modes.filter((m) => m.startsWith(word));
+    } else {
+      matches = completePath(word, cwd, command === "cd" || command === "ls");
+    }
+
+    if (matches.length === 0) return input;
+
+    let done = matches.length === 1 ? matches[0] : commonPrefix(matches);
+    if (matches.length === 1 && !done.endsWith("/")) done += " "; // finished word
+    return [...words, done].join(" ");
+  }
+
+  // ↑ = -1 (older), ↓ = +1 (newer). Returns the line to show, or null to do nothing
+  function recall(step: -1 | 1) {
+    if (running || pastCommands.length === 0) return null;
+
+    const from = browsing ?? pastCommands.length; // fresh line sits just past the newest
+    const next = Math.min(Math.max(from + step, 0), pastCommands.length);
+
+    setBrowsing(next === pastCommands.length ? null : next);
+    return next === pastCommands.length ? "" : pastCommands[next]; // past the newest → empty line
   }
 
   // The question to show, or cwd when no script is running
@@ -50,6 +102,15 @@ export function useTerminal() {
       }
       return; // prevents answers to be treated as commands
     }
+
+    setBrowsing(null); // Enter always brings you back to a fresh line
+    if (input) {
+      // skip repeats, so pressing ↑ doesn't step through "ls, ls, ls"
+      setPastCommands((prev) =>
+        prev.at(-1) === input ? prev : [...prev, input],
+      );
+    }
+
     const [command, arg] = input.split(/\s+/);
 
     if (command.startsWith("./")) {
@@ -168,7 +229,7 @@ export function useTerminal() {
     }
   }
 
-  return { cwd, output, run, prompt, history };
+  return { cwd, output, run, prompt, history, complete, recall };
 }
 
 export type TerminalState = ReturnType<typeof useTerminal>; // { cwd, output, run, prompt, history }

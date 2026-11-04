@@ -13,6 +13,8 @@ export default function ClassicLayout({ terminal }: LayoutProps) {
           run={terminal.run}
           prompt={terminal.prompt}
           history={terminal.history}
+          complete={terminal.complete}
+          recall={terminal.recall}
         />
         <OutputScreen output={terminal.output} />
       </main>

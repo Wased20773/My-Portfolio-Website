@@ -29,3 +29,20 @@ export async function getFile(input: string, cwd: string) {
   );
   return dir?.files.find((f) => f.name === input.slice(slash + 1));
 }
+
+// "proj" -> ["projects/"], "projects/per" -> ["projects/personal"], "../" -> everything one folder up
+export function completePath(word: string, cwd: string, foldersOnly = false) {
+  const slash = word.lastIndexOf("/");
+  const base = word.slice(0, slash + 1);
+  const partial = word.slice(slash + 1);
+
+  const dir = dirs.get(resolvePath(base || ".", cwd));
+  if (!dir) return [];
+
+  const names = [
+    ...dir.folders.map((f) => `${f.name}/`), // trailing / marks a folder
+    ...(foldersOnly ? [] : dir.files.map((f) => f.name)),
+  ];
+
+  return names.filter((n) => n.startsWith(partial)).map((n) => base + n);
+}
