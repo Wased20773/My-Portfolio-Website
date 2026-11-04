@@ -104,6 +104,16 @@ export const commands = {
   //     },
   //   ],
   // },
+  mode: {
+    usage: "mode [light | dark]",
+    description: "Switch between screen modes",
+    details:
+      "Switches the site between day (light) and night (dark). Same as clicking the sun or moon or the switch on mobile.",
+    info: [
+      { usage: "mode light", description: "Switch to day" },
+      { usage: "mode dark", description: "Switch to night" },
+    ],
+  },
   help: {
     usage: "help [command]",
     description: "Show all commands, or one",

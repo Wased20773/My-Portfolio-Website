@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Output } from "@/data/type";
 import { getDirectory, getFile, resolvePath } from "./fs";
 import { isCommand } from "./commands";
-// import { useTheme } from "@/themes/ThemeProvider";
+import { useTheme } from "@/themes/ThemeProvider";
 // import { isThemeName } from "@/themes/themes";
 import { isScript, ScriptName, scripts } from "./scripts";
+import { isModeName } from "@/themes/themes";
 
 export function useTerminal() {
   const [cwd, setCWD] = useState<string>("~/");
   const [output, setOutput] = useState<Output>(null);
   // const { setTheme } = useTheme();
+  const { mode, setMode } = useTheme();
 
   // Must check if there is a running script
   const [running, setRunning] = useState<{
@@ -138,6 +140,23 @@ export function useTerminal() {
       //   else setTheme(arg);
       //   break;
       // }
+
+      case "mode": {
+        if (!arg) {
+          setOutput({
+            kind: "error",
+            message: "mode: missing argument (light | dark)",
+          });
+        } else if (isModeName(arg)) {
+          setMode(arg);
+        } else {
+          setOutput({
+            kind: "error",
+            message: `mode: '${arg}' is not a mode (light | dark)`,
+          });
+        }
+        break;
+      }
 
       case "": {
         break;
