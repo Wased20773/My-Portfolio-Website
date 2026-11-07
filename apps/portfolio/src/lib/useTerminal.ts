@@ -11,7 +11,7 @@ export function useTerminal() {
   const [cwd, setCWD] = useState<string>("~/");
   const [output, setOutput] = useState<Output>(null);
   // const { setTheme } = useTheme();
-  const { mode, setMode } = useTheme();
+  const { setMode } = useTheme();
 
   // Must check if there is a running script
   const [running, setRunning] = useState<{
@@ -20,6 +20,8 @@ export function useTerminal() {
     answers: Record<string, string>;
   } | null>(null);
   const [history, setHistory] = useState<string[]>([]);
+  // true while a script's onFinish is working (e.g. sending the email)
+  const [busy, setBusy] = useState(false);
 
   const [pastCommands, setPastCommands] = useState<string[]>([]);
   const [browsing, setBrowsing] = useState<number | null>(null); // null = not browsing, on a fresh line
@@ -77,12 +79,16 @@ export function useTerminal() {
     return next === pastCommands.length ? "" : pastCommands[next]; // past the newest → empty line
   }
 
-  // The question to show, or cwd when no script is running
-  const prompt = running
-    ? scripts[running.name].steps[running.step].prompt
-    : `bryan@portfolio:${cwd.replace(/\/$/, "")}$ `;
+  // Nothing while busy, the question while a script runs, otherwise cwd
+  const prompt = busy
+    ? ""
+    : running
+      ? scripts[running.name].steps[running.step].prompt
+      : `bryan@portfolio:${cwd.replace(/\/$/, "")}$ `;
 
   async function run(input: string) {
+    if (busy) return; // ignore Enter until the script is done
+
     if (running) {
       const script = scripts[running.name];
       const step = script.steps[running.step];
@@ -97,8 +103,14 @@ export function useTerminal() {
         setRunning({ ...running, step: running.step + 1, answers }); // next question
       } else {
         addLine(`${step.prompt}${input}`);
-        addLine(script.onFinish(answers));
+        addLine("Sending...");
         setRunning(null);
+        setBusy(true); // hides the prompt and locks input while we wait
+        try {
+          addLine(await script.onFinish(answers));
+        } finally {
+          setBusy(false); // always unlock, even if onFinish throws
+        }
       }
       return; // prevents answers to be treated as commands
     }
@@ -229,7 +241,7 @@ export function useTerminal() {
     }
   }
 
-  return { cwd, output, run, prompt, history, complete, recall };
+  return { cwd, output, run, prompt, history, complete, recall, busy };
 }
 
 export type TerminalState = ReturnType<typeof useTerminal>; // { cwd, output, run, prompt, history }

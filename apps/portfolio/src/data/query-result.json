@@ -7,25 +7,43 @@
         "_type": "post",
         "body": [
           {
-            "_key": "941b4361e981",
+            "_key": "e59b1fdbdfdf",
             "_type": "block",
             "children": [
               {
-                "_key": "df22c87290f1",
+                "_key": "2156e97c8370",
                 "_type": "span",
                 "marks": [],
-                "text": "Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text "
+                "text": "I am proud to announce that I have completed the first phase of my portfolio website. Back when I took intro to web development in 2023 we were given a final project to create our portfolio page ("
+              },
+              {
+                "_key": "f3b9b165d877",
+                "_type": "span",
+                "marks": ["8d0c0ec993f7"],
+                "text": "https://wased20773.github.io/My-Website/"
+              },
+              {
+                "_key": "7b3489d17055",
+                "_type": "span",
+                "marks": [],
+                "text": "). However, I was no longer finding it appealing plus it didn’t shape the person I am today. I have learned a lot since the past 3 years, learning new tech stacks like React, NodeJS, Typescript, Tailwind, etc. That portfolio was made with raw JavaScript, HTML, and CSS. With my new skills and knowledge I am able to do more and present more with the foundations that I love to use on a day-to-day basis.\n\nThe portfolio your currently on took about a month to create with some AI assistants at hand. I plan to make more features regarding the terminal and some other fun UX designs to make this experience feel unique. My plan is to stand out from other candidates and show people (recruiters, guest, family, friends, etc.) the class of work I bring with my creative intuition. \n\nI really do hope you enjoy my portfolio, If you have any questions or find an issue, or just wanna say hi, feel free to email me either through google or via the command line; learn how to do that in my help menu ;)."
               }
             ],
-            "markDefs": [],
+            "markDefs": [
+              {
+                "_key": "8d0c0ec993f7",
+                "_type": "link",
+                "href": "https://wased20773.github.io/My-Website/"
+              }
+            ],
             "style": "normal"
           }
         ],
         "coverImage": null,
-        "name": "virtual-directory.md",
-        "publishedAt": "2026-10-15T23:52:00.000Z",
-        "shortDescription": "Created a virtual directory using a CMS.",
-        "title": "Virtual Directory"
+        "name": "launch-day.md",
+        "publishedAt": "2026-11-06T21:36:39.334Z",
+        "shortDescription": "My portfolio website that I designed and created from the ground up. Featuring a custom made terminal with custom commands with more to come in the near future!",
+        "title": "Launch Day"
       }
     ],
     "folders": [],

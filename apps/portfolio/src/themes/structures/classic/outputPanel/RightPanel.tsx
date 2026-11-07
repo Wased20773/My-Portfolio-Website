@@ -43,7 +43,8 @@ function HelpView({ cmd }: { cmd: CommandTypes | "all" }) {
                 - <code>cd ~/newsletter</code>
               </p>
               <p>
-                - <code>cat</code> the latest post regarding terminal features.
+                - <code>cat</code> the latest post with the subject{" "}
+                <span className="font-semibold">Terminal</span>
               </p>
             </div>
 

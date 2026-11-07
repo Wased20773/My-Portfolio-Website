@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type TerminalProps = {
   run: (input: string) => void;
@@ -8,6 +8,7 @@ type TerminalProps = {
   history: string[]; // lines a script printed into the terminal
   complete: (input: string) => string;
   recall: (step: -1 | 1) => string | null;
+  busy: boolean; // a script is finishing up (e.g. "Sending..."), so no typing
 };
 
 export default function Terminal({
@@ -16,8 +17,17 @@ export default function Terminal({
   history,
   complete,
   recall,
+  busy,
 }: TerminalProps) {
   const inputRef = useRef<HTMLSpanElement>(null);
+
+  // When busy ends, put the caret back so the user can type right away.
+  // wasBusy makes sure this only fires on busy → not busy, not on page load
+  const wasBusy = useRef(false);
+  useEffect(() => {
+    if (wasBusy.current && !busy) inputRef.current?.focus();
+    wasBusy.current = busy;
+  }, [busy]);
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLSpanElement>) {
     if (e.key === "Tab") {
@@ -83,7 +93,7 @@ export default function Terminal({
           <span>{prompt}</span>
           <span
             ref={inputRef}
-            contentEditable
+            contentEditable={!busy} // locked while busy, so nothing can be typed or pasted
             suppressContentEditableWarning
             role="textbox"
             aria-label="Terminal command"

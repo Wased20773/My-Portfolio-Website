@@ -18,6 +18,17 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'subject',
+      title: 'Subject',
+      type: 'string',
+      options: {
+        list: ['Terminal', 'projects', 'UI', 'UX', 'Features', 'Info'],
+        layout: 'dropdown',
+        direction: 'vertical',
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'extension',
       title: 'Extension',
       type: 'string',

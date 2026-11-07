@@ -15,6 +15,7 @@ export default function ClassicLayout({ terminal }: LayoutProps) {
           history={terminal.history}
           complete={terminal.complete}
           recall={terminal.recall}
+          busy={terminal.busy}
         />
         <OutputScreen output={terminal.output} />
       </main>

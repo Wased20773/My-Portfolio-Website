@@ -19,27 +19,28 @@ The data will be coming from a pre-generated response from Sanity's "Vision" res
 
 Its long but it gets the data I want in the formate I need so that I can render it easily on the frontend:
 
-\*[_type == "directory"] {
-"cwd": select(
-name == "~" => "~/",
-parent->name == "~" => "~/" + name + "/",
-parent->parent->name == "~" =>
-"~/" + parent->name + "/" + name + "/"
-),
+```txt
+*[_type == "directory"] {
+  "cwd": select(
+    name == "~" => "~/",
+    parent->name == "~" => "~/" + name + "/",
+    parent->parent->name == "~" =>
+      "~/" + parent->name + "/" + name + "/"
+  ),
 
-"files": \*[
-(
-\_type == "aboutMe" &&
-^.name == "~"
-)
-||
-(
-\_type in ["project", "post", "script"] &&
-parent.\_ref == ^.\_id
-)
-] {
-\_id,
-\_type,
+  "files": *[
+    (
+      _type == "aboutMe" &&
+      ^.name == "~"
+    )
+    ||
+    (
+      _type in ["project", "post", "script"] &&
+      parent._ref == ^._id
+    )
+  ] {
+    _id,
+    _type,
 
     ...select(
       _type == "aboutMe" => {
@@ -60,7 +61,13 @@ parent.\_ref == ^.\_id
         "name": slug.current + "." + extension,
         startDate,
         tech,
-        title
+        title,
+
+        links[] {
+          kind,
+          url,
+          label
+        }
       },
 
       _type == "post" => {
@@ -76,28 +83,28 @@ parent.\_ref == ^.\_id
         name
       }
     )
+  },
 
-},
+  "folders": *[
+    _type == "directory" &&
+    parent._ref == ^._id
+  ] {
+    "cwd": select(
+      name == "~" => "~/",
+      parent->name == "~" => "~/" + name + "/",
+      parent->parent->name == "~" =>
+        "~/" + parent->name + "/" + name + "/"
+    ),
+    name
+  },
 
-"folders": \*[
-_type == "directory" &&
-parent._ref == ^._id
-] {
-"cwd": select(
-name == "~" => "~/",
-parent->name == "~" => "~/" + name + "/",
-parent->parent->name == "~" =>
-"~/" + parent->name + "/" + name + "/"
-),
-name
-},
+  name,
 
-name,
-
-"parent": select(
-name == "~" => null,
-parent->name == "~" => "~/",
-parent->parent->name == "~" =>
-"~/" + parent->name + "/"
-)
+  "parent": select(
+    name == "~" => null,
+    parent->name == "~" => "~/",
+    parent->parent->name == "~" =>
+      "~/" + parent->name + "/"
+  )
 }
+```
