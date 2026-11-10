@@ -5,8 +5,15 @@ import { commands, withCode, type CommandTypes } from "@/lib/commands";
 import { formatDate, projectDates } from "@/lib/dates";
 import RichText from "@/themes/shared/RichText";
 import type { Directory, FileNode, Output } from "@/data/type";
+import type { Nav } from "./OutputScreen";
 
-export default function RightPanel({ output }: { output: Output }) {
+export default function RightPanel({
+  output,
+  nav,
+}: {
+  output: Output;
+  nav: Nav;
+}) {
   if (!output) return null;
 
   switch (output.kind) {
@@ -17,7 +24,7 @@ export default function RightPanel({ output }: { output: Output }) {
       return <HelpView cmd={output.cmds} />;
 
     case "ls":
-      return <Listing dir={output.dir} />;
+      return <Listing dir={output.dir} nav={nav} />;
 
     case "file":
       return <FileView file={output.file} />;
@@ -95,7 +102,7 @@ function HelpView({ cmd }: { cmd: CommandTypes | "all" }) {
 
 // ---------- ls ----------
 
-function Listing({ dir }: { dir: Directory }) {
+function Listing({ dir, nav }: { dir: Directory; nav: Nav }) {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono">
       {dir.files.map((f, i) =>
@@ -106,7 +113,12 @@ function Listing({ dir }: { dir: Directory }) {
             style={{ "--i": i } as React.CSSProperties}
             className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] text-card-ink rounded-md bg-card px-2 py-1"
           >
-            <p className="font-semibold">{f.name}</p>
+            <FileName
+              file={f}
+              dirPath={dir.cwd}
+              nav={nav}
+              className="font-semibold"
+            />
           </li>
         ) : f._type === "project" ? (
           <li
@@ -115,7 +127,12 @@ function Listing({ dir }: { dir: Directory }) {
             style={{ "--i": i } as React.CSSProperties}
             className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] flex flex-col justify-between text-card-ink rounded-md bg-card px-2 py-1"
           >
-            <p className="font-semibold">{f.name}</p>
+            <FileName
+              file={f}
+              dirPath={dir.cwd}
+              nav={nav}
+              className="font-semibold"
+            />
             {/* {f.tech && (
               <ul className="flex flex-wrap gap-2" aria-label="Tech stack"></ul>
             )} */}
@@ -127,7 +144,12 @@ function Listing({ dir }: { dir: Directory }) {
             style={{ "--i": i } as React.CSSProperties}
             className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] rounded-2xl bg-card-alt p-3"
           >
-            <p className="font-semibold text-card-alt-ink">{f.name}</p>
+            <FileName
+              file={f}
+              dirPath={dir.cwd}
+              nav={nav}
+              className="font-semibold"
+            />
             {f.publishedAt && (
               <time dateTime={f.publishedAt} className="text-card-alt-faint">
                 {formatDate(f.publishedAt, {
@@ -148,7 +170,12 @@ function Listing({ dir }: { dir: Directory }) {
             style={{ "--i": i } as React.CSSProperties}
             className="motion-safe:animate-slide-in-left motion-safe:[animation-delay:calc(var(--i)*var(--stagger))] text-card-ink rounded-md bg-card px-2 py-1"
           >
-            <p className="font-semibold">{f.name}</p>
+            <FileName
+              file={f}
+              dirPath={dir.cwd}
+              nav={nav}
+              className="font-semibold"
+            />
           </li>
         ) : (
           // File type was unable to be defined
@@ -160,6 +187,35 @@ function Listing({ dir }: { dir: Directory }) {
 }
 
 // ---------- cat ----------
+
+// Avoids writing it to other types
+function FileName({
+  file,
+  dirPath,
+  nav,
+  className,
+}: {
+  file: FileNode;
+  dirPath: string;
+  nav: Nav;
+  className: string;
+}) {
+  return (
+    <p className={className}>
+      {nav ? (
+        <button
+          type="button"
+          onClick={() => nav.openFile(dirPath, file)}
+          className="outline-none after:absolute after:inset-0 after:rounded-[inherit]"
+        >
+          {file.name}
+        </button>
+      ) : (
+        file.name
+      )}
+    </p>
+  );
+}
 
 function FileView({ file }: { file: FileNode }) {
   switch (file._type) {

@@ -1,34 +1,43 @@
 // This is the general container for the output screen.
 
-import { Output } from "@/data/type";
+import { FileNode, Output } from "@/data/type";
 import LeftPanel from "./LeftPanel";
 import RightPanel from "./RightPanel";
+
+export type NavActions = {
+  openFolder: (path: string) => void;
+  openFile: (dirPath: string, file: FileNode) => void;
+};
+
+export type Nav = NavActions | null; // null = terminal mode
 
 type OutputScreenResults = {
   output: Output;
   navOpen?: boolean;
+  nav: Nav;
 };
 
-export default function OutputScreen({ output }: { output: Output }) {
-  // null output gets handled inside of the panels
-  if (!output) return <OutputResults output={null} />;
+export default function OutputScreen({
+  output,
+  terminalMode,
+  nav,
+}: {
+  output: Output;
+  terminalMode: boolean;
+  nav: NavActions;
+}) {
+  const navOpen = output?.kind !== "help" && output?.kind !== "file";
 
-  switch (output.kind) {
-    case "error":
-      return <OutputResults output={output} />;
-
-    case "help":
-      return <OutputResults output={output} navOpen={false} />;
-
-    case "ls":
-      return <OutputResults output={output} />;
-
-    case "file":
-      return <OutputResults output={output} navOpen={false} />;
-  }
+  return (
+    <OutputResults
+      output={output}
+      navOpen={navOpen}
+      nav={terminalMode ? null : nav}
+    />
+  );
 }
 
-function OutputResults({ output, navOpen = true }: OutputScreenResults) {
+function OutputResults({ output, navOpen = true, nav }: OutputScreenResults) {
   return (
     <div className="min-h-[100px] bg-surface rounded-md overflow-hidden p-3 m-2">
       <div
@@ -42,7 +51,7 @@ function OutputResults({ output, navOpen = true }: OutputScreenResults) {
             aria-label="Directory"
           >
             {/* Insert dynamicly generated navigation based on current directory selection */}
-            <LeftPanel output={output} />
+            <LeftPanel output={output} nav={nav} />
           </nav>
         )}
 
@@ -57,7 +66,7 @@ function OutputResults({ output, navOpen = true }: OutputScreenResults) {
                 Every nav click or typed via cd, move focus to that heading with tabIndex={-1}
         */}
         <section className={navOpen ? "col-span-1" : "col-span-full"}>
-          <RightPanel output={output} />
+          <RightPanel output={output} nav={nav} />
         </section>
       </div>
     </div>

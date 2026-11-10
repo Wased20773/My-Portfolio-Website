@@ -3,6 +3,31 @@
     "cwd": "~/newsletter/",
     "files": [
       {
+        "_id": "e34e39d2-e632-4e1d-bd44-600abd3045c2",
+        "_type": "post",
+        "body": [
+          {
+            "_key": "8256e2f759b6",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "a2111108f316",
+                "_type": "span",
+                "marks": [],
+                "text": "As what should’ve been a feature from the start, and now you can disregard the terminal and navigate around my portfolio as a normal website. \n\nYou can freely turn on and off terminal mode throughout your experience. Keep in mind, special features cannot be used outside of the terminal, such as switching the mode to light or dark; look into ‘help’ for more info about these commands."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "coverImage": null,
+        "name": "clickable-interface.md",
+        "publishedAt": "2026-11-10T01:04:11.911Z",
+        "shortDescription": "Navigate using your clicks!",
+        "title": "Clickable Interface"
+      },
+      {
         "_id": "fbf91c99-b5da-4121-a793-3ee8e317ab32",
         "_type": "post",
         "body": [

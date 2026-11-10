@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Output } from "@/data/type";
+import { FileNode, Output } from "@/data/type";
 import { completePath, getDirectory, getFile, resolvePath } from "./fs";
 import { commands, isCommand } from "./commands";
 import { useTheme } from "@/themes/ThemeProvider";
@@ -8,8 +8,13 @@ import { isScript, ScriptName, scripts } from "./scripts";
 import { isModeName, modes } from "@/themes/themes";
 
 export function useTerminal() {
+  const [terminalMode, setTerminalMode] = useState(false); // click mode is the default
+  // true when clicking a script opened the terminal (not the user's own choice),
+  // so the back button stays to take them back to browsing
+  const [scriptFromClick, setScriptFromClick] = useState(false);
+
   const [cwd, setCWD] = useState<string>("~/");
-  const [output, setOutput] = useState<Output>(null);
+  const [output, setOutput] = useState<Output>(() => listing("~/"));
   // const { setTheme } = useTheme();
   const { setMode } = useTheme();
 
@@ -25,6 +30,24 @@ export function useTerminal() {
 
   const [pastCommands, setPastCommands] = useState<string[]>([]);
   const [browsing, setBrowsing] = useState<number | null>(null); // null = not browsing, on a fresh line
+
+  // "~/projects/" → its ls output, or null if the folder doesn't exist
+  function listing(path: string): Output {
+    const dir = getDirectory(path);
+    return dir ? { kind: "ls", dir } : null;
+  }
+
+  function toggleTerminalMode() {
+    if (busy) return; // don't leave while a script is sending
+
+    if (terminalMode) {
+      // Leaving the terminal: cancel any script and show the folder we're in
+      setRunning(null);
+      setOutput(listing(cwd));
+    }
+    setTerminalMode(!terminalMode);
+    setScriptFromClick(false); // the user picked a mode themselves now
+  }
 
   function addLine(line: string) {
     setHistory((prev) => [...prev, line]);
@@ -85,6 +108,24 @@ export function useTerminal() {
     : running
       ? scripts[running.name].steps[running.step].prompt
       : `bryan@portfolio:${cwd.replace(/\/$/, "")}$ `;
+
+  const backTo = terminalMode
+    ? scriptFromClick
+      ? cwd // a clicked script: back to the folder it was in
+      : null // terminal users type `cd ..`
+    : output?.kind === "file"
+      ? cwd // leave the file, back to the folder it's in
+      : cwd !== "~/"
+        ? resolvePath("..", cwd) // up one folder
+        : null; // already home
+
+  function goBack() {
+    if (scriptFromClick) {
+      toggleTerminalMode(); // cancels the script, closes the terminal, shows the listing
+    } else if (backTo) {
+      run(`cd ${backTo}`);
+    }
+  }
 
   async function run(input: string) {
     if (busy) return; // ignore Enter until the script is done
@@ -159,9 +200,10 @@ export function useTerminal() {
 
       case "cd": {
         const target = resolvePath(arg ?? "~", cwd); // plain `cd` goes home
-        if (await getDirectory(target)) {
+        const result = listing(target);
+        if (result) {
           setCWD(target);
-          setOutput(null);
+          setOutput(terminalMode ? null : result);
         } else {
           setOutput({
             kind: "error",
@@ -172,7 +214,7 @@ export function useTerminal() {
       }
 
       case "ls": {
-        const dir = await getDirectory(resolvePath(arg ?? ".", cwd)); // plain `ls` = here
+        const dir = getDirectory(resolvePath(arg ?? ".", cwd)); // plain `ls` = here
         if (dir) setOutput({ kind: "ls", dir });
         else
           setOutput({
@@ -241,7 +283,45 @@ export function useTerminal() {
     }
   }
 
-  return { cwd, output, run, prompt, history, complete, recall, busy };
+  // ---------- Click mode: a click types the command for the user ----------
+
+  //cd
+  function openFolder(path: string) {
+    if (terminalMode) return; // clicking only exists in click mode
+
+    run(`cd ${path}`);
+  }
+
+  // cat/sh
+  function openFile(dirPath: string, file: FileNode) {
+    if (terminalMode) return; // clicking only exists in click mode
+
+    if (file._type === "script") {
+      setScriptFromClick(true);
+      setTerminalMode(true); // scripts need the terminal to ask their questions
+
+      run(`./${file.name}`);
+    } else {
+      run(`cat ${dirPath}${file.name}`);
+    }
+  }
+
+  return {
+    cwd,
+    output,
+    run,
+    prompt,
+    history,
+    complete,
+    recall,
+    busy,
+    terminalMode,
+    toggleTerminalMode,
+    openFolder,
+    openFile,
+    backTo,
+    goBack,
+  };
 }
 
 export type TerminalState = ReturnType<typeof useTerminal>; // { cwd, output, run, prompt, history }

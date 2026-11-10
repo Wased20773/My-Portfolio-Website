@@ -3,7 +3,7 @@ import type { Directory } from "@/data/type";
 
 const dirs = new Map((data as Directory[]).map((d) => [d.cwd, d]));
 
-export async function getDirectory(cwd: string) {
+export function getDirectory(cwd: string) {
   return dirs.get(cwd);
 }
 

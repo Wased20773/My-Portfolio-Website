@@ -29,6 +29,11 @@ export default function Terminal({
     wasBusy.current = busy;
   }, [busy]);
 
+  // Mounting = the user just turned terminal mode on, so let them type right away
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   function handleKeyDown(e: React.KeyboardEvent<HTMLSpanElement>) {
     if (e.key === "Tab") {
       const el = inputRef.current;
