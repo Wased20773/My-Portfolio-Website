@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome",
+  title: "Bryan Vazquez Portfolio",
   description:
     "A terminal-like portfolio that allows navigation using Linux-like commands and showcases my UI/UX design skills",
 };
